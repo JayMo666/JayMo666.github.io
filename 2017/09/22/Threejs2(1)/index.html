@@ -1,0 +1,1403 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="jaymo666.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="jaymo666.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="jaymo666.github.io/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,初级,3D,threejs," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="jaymo666.github.io/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="作为3D技术的发展趋势，浏览器端3D技术越来越被一些技术公司重视。由此，Threejs非常注重3D渲染效果的真实性，对渲染真实性来说，使用光源是比不可少的技巧。Threejs，在光源方面提供了多种光源供选择。">
+<meta name="keywords" content="js,初级,3D,threejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Threejs中的各种光源（Threejs第二章）">
+<meta property="og:url" content="http://jaymo666.github.io/2017/09/22/Threejs2(1)/index.html">
+<meta property="og:site_name" content="JayMo个人网站">
+<meta property="og:description" content="作为3D技术的发展趋势，浏览器端3D技术越来越被一些技术公司重视。由此，Threejs非常注重3D渲染效果的真实性，对渲染真实性来说，使用光源是比不可少的技巧。Threejs，在光源方面提供了多种光源供选择。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.hewebgl.com/attached/image/20130515/20130515163339_12.jpg">
+<meta property="og:image" content="http://www.hewebgl.com/attached/image/20130516/20130516165745_434.jpg">
+<meta property="og:image" content="http://www.hewebgl.com/attached/image/20130515/20130515170232_15.png">
+<meta property="og:image" content="http://www.hewebgl.com/attached/image/20130515/20130515170358_794.jpg">
+<meta property="og:image" content="http://www.hewebgl.com/attached/image/20130515/20130515170419_688.png">
+<meta property="og:image" content="http://www.hewebgl.com/attached/image/20130516/20130516171702_524.jpg">
+<meta property="og:image" content="http://www.hewebgl.com/attached/image/20130516/20130516172030_538.png">
+<meta property="og:image" content="http://www.hewebgl.com/attached/image/20130516/20130516172333_384.png">
+<meta property="og:updated_time" content="2017-12-03T12:41:54.229Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Threejs中的各种光源（Threejs第二章）">
+<meta name="twitter:description" content="作为3D技术的发展趋势，浏览器端3D技术越来越被一些技术公司重视。由此，Threejs非常注重3D渲染效果的真实性，对渲染真实性来说，使用光源是比不可少的技巧。Threejs，在光源方面提供了多种光源供选择。">
+<meta name="twitter:image" content="http://www.hewebgl.com/attached/image/20130515/20130515163339_12.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: 'jaymo666.github.io/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jaymo666.github.io/2017/09/22/Threejs2(1)/"/>
+
+
+
+
+
+  <title>Threejs中的各种光源（Threejs第二章） | JayMo个人网站</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6a6c220a2d326597cdbfe3ee99d62b3a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="jaymo666.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JayMo个人网站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">打造属于自己的超能力</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="jaymo666.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="jaymo666.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="jaymo666.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="jaymo666.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="jaymo666.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="jaymo666.github.io/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.iojaymo666.github.io/2017/09/22/Threejs2(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莫爵贵(JayMo)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="jaymo666.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JayMo个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Threejs中的各种光源（Threejs第二章）</h1>
+        
+
+        <div class="post-meta">
+
+    
+
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-22T13:34:47+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="jaymo666.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="jaymo666.github.io/2017/09/22/Threejs2(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/22/Threejs2(1)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="jaymo666.github.io/2017/09/22/Threejs2(1)/" class="leancloud_visitors" data-flag-title="Threejs中的各种光源（Threejs第二章）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作为3D技术的发展趋势，浏览器端3D技术越来越被一些技术公司重视。由此，Threejs非常注重3D渲染效果的真实性，对渲染真实性来说，使用光源是比不可少的技巧。Threejs，在光源方面提供了多种光源供选择。<a id="more"></a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=447960871&auto=0&height=66"></iframe>
+
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><h3 id="1-Threejs中的各种光源"><a href="#1-Threejs中的各种光源" class="headerlink" title="1.Threejs中的各种光源"></a>1.Threejs中的各种光源</h3><h4 id="1-1光源基类"><a href="#1-1光源基类" class="headerlink" title="1.1光源基类"></a>1.1光源基类</h4><p>在Threejs中，光源用Light表示，它是所有光源的基类。它的构造函数是：<br><strong>THREE.Light ( hex )</strong></p>
+<p>它有一个参数hex，接受一个16进制的颜色值。例如要定义一种红色的光源，我们可以这样来定义：</p>
+<pre><code>Var redLight = new THREE.Light(0xFF0000);
+</code></pre><h4 id="1-2由基类派生出来的其他种类光源"><a href="#1-2由基类派生出来的其他种类光源" class="headerlink" title="1.2由基类派生出来的其他种类光源"></a>1.2由基类派生出来的其他种类光源</h4><p><strong>THREE.Light只是其他所有光源的基类</strong>，要让光源除了具有颜色的特性之外，我们需要其他光源。看看，下面的类图，是目前光源的继承结构。<br><img src="http://www.hewebgl.com/attached/image/20130515/20130515163339_12.jpg" alt=""></p>
+<p>环境光是经过多次反射而来的光称为环境光，无法确定其最初的方向。环境光是一种无处不在的光。环境光源放出的光线被认为来自任何方向。因此，当你仅为场景指定环境光时，所有的物体无论法向量如何，都将表现为同样的明暗程度。 （这是因为，反射光可以从各个方向进入您的眼睛）</p>
+<h5 id="1-2-1-环境光"><a href="#1-2-1-环境光" class="headerlink" title="1.2.1 环境光"></a>1.2.1 <strong>环境光</strong></h5><p>用<code>THREE.AmbientLight</code>来表示，它的构造函数如下所示：<br><strong>    THREE.AmbientLight( hex )</strong></p>
+<p>它仍然接受一个16进制的颜色值，作为光源的颜色。环境光将照射场景中的所有物体，让物体显示出某种颜色。环境光的使用例子如下所示：</p>
+<pre><code>var light = new THREE.AmbientLight( 0xff0000 );
+scene.add( light );
+</code></pre><p>只需要将光源加入场景，场景就能够通过光源渲染出好的效果来了。</p>
+<h5 id="1-2-2点光源"><a href="#1-2-2点光源" class="headerlink" title="1.2.2点光源"></a>1.2.2<strong>点光源</strong></h5><p>由这种光源放出的光线来自同一点，且方向辐射自四面八方。例如蜡烛放出的光，萤火虫放出的光。</p>
+<p>点光源用PointLight来表示，它的构造函数如下所示：</p>
+<p>PointLight( color, intensity, distance )</p>
+<p>这个类的参数稍微复杂一些，我们花点时间来解释一下：</p>
+<ul>
+<li><p>Color：光的颜色</p>
+</li>
+<li><p>Intensity：光的强度，默认是1.0,就是说是100%强度的灯光，</p>
+</li>
+<li><p>distance：光的距离，从光源所在的位置，经过distance这段距离之后，光的强度将从Intensity衰减为0。 默认情况下，这个值为0.0，表示光源强度不衰减。</p>
+</li>
+</ul>
+<p>#####1.2.3<strong>聚光灯</strong><br>这种光源的光线从一个锥体中射出，在被照射的物体上产生聚光的效果。使用这种光源需要指定光的射出方向以及锥体的顶角α。聚光灯示例如图所示：<br><img src="http://www.hewebgl.com/attached/image/20130516/20130516165745_434.jpg" alt=""></p>
+<p>聚光灯的构造函数是：<br><strong><br>THREE.SpotLight( hex, intensity, distance, angle, exponent )</strong></p>
+<p>函数的参数如下所示：</p>
+<ul>
+<li><p>Hex：聚光灯发出的颜色，如0xFFFFFF</p>
+</li>
+<li><p>Intensity：光源的强度，默认是1.0，如果为0.5，则强度是一半，意思是颜色会淡一些。和上面点光源一样。</p>
+</li>
+<li><p>Distance：光线的强度，从最大值衰减到0，需要的距离。 默认为0，表示光不衰减，如果非0，则表示从光源的位置到Distance的距离，光都在线性衰减。到离光源距离Distance时，光源强度为0.</p>
+</li>
+</ul>
+<p>Angle：聚光灯着色的角度，用弧度作为单位，这个角度是和光源的方向形成的角度。</p>
+<p>exponent：光源模型中，衰减的一个参数，越大衰减约快。</p>
+<h3 id="2-材质与光源的关系"><a href="#2-材质与光源的关系" class="headerlink" title="2.材质与光源的关系"></a>2.材质与光源的关系</h3><p>材质与光源有什么关系？什么是材质？</p>
+<h4 id="2-1-材质的真相"><a href="#2-1-材质的真相" class="headerlink" title="2.1 材质的真相"></a>2.1 材质的真相</h4><blockquote>
+<p>材质就是物体的质地。材质就是材料和质感的完美结合。</p>
+</blockquote>
+<p>在渲染程序中，它是表面<strong>各可视属性的结合</strong>，这些可视属性是指表面的色彩、纹理、光滑度、透明度、反射率、折射率、发光度等。正是有了这些属性，才能让我们识别三维中的模型是什么做成的，也正是有了这些属性，我们计算机三维的虚拟世界才会和真实世界一样缤纷多彩。</p>
+<p>这就是材质的真相吗？答案是否定的。不要奇怪，我们必须仔细分析产生不同材质的原因，才能让我们更好的把握质感。那么，材质的真相到底是什么呢？仍然是光，离开光材质是无法体现的。　</p>
+<p>首先，我们来看一些例子。这些例子是一系类的，掌握一个，我们就印下了一个脚印.</p>
+<h5 id="2-2-脚印一：不带任何光源的物体"><a href="#2-2-脚印一：不带任何光源的物体" class="headerlink" title="2.2  脚印一：不带任何光源的物体"></a>2.2  脚印一：不带任何光源的物体</h5><p>我们首先在屏幕上画一个物体，不带任何的光源，定义物体的颜色为黑色，其值为0x000000，定义材质如下：</p>
+<p>var material = new THREE.MeshLambertMaterial( { color:0x000000} ); // 这是兰伯特材质，材质中的一种</p>
+<p>先看看最终的运行截图，如下所示：<br><img src="http://www.hewebgl.com/attached/image/20130515/20130515170232_15.png" alt=""></p>
+<p>由这幅图得出结论，当没有任何光源的时候，最终的颜色将是材质的颜色。但是这个结论目前来说，并没有依据。<br><strong><br>结论：当没有任何光源的时候，最终的颜色将是黑色，无论材质是什么颜色。</strong></p>
+<h4 id="2-3-脚印二：兰伯特材质与光源"><a href="#2-3-脚印二：兰伯特材质与光源" class="headerlink" title="2.3 脚印二：兰伯特材质与光源"></a>2.3 脚印二：兰伯特材质与光源</h4><p>最常见的材质之一就是Lambert材质，这是在灰暗的或不光滑的表面产生<strong>均匀散射</strong>而形成的材质类型。比如一张纸就是Lambert表面。 首先它粗糙不均匀，不会产生镜面效果。我们在阅读书籍的时候，没有发现书上一处亮，一处不亮吧，它非常均匀，这就是兰伯特材质。</p>
+<p>有的朋友觉得纸不粗糙啊，你怎么说它粗糙吗？人的肉眼是不好分辨出来，它粗不粗糙的。</p>
+<p>Lambert材质表面会在所有方向上均匀地散射灯光，这就会使颜色看上去比较均匀。想想一张纸，无论什么颜色，是不是纸的各个部分颜色都比较均匀呢。</p>
+<p>Lambert材质的图例如下所示：<br><img src="http://www.hewebgl.com/attached/image/20130515/20130515170358_794.jpg" alt=""><br>Lambert材质会受环境光的影响，呈现环境光的颜色，与材质本身颜色关系不大。</p>
+<p>我们现在来做一个例子</p>
+<p>例子：红色环境光照射下的长方体，它用的是淡红色(0x880000)的兰伯特材质。效果如下图：</p>
+<p><img src="http://www.hewebgl.com/attached/image/20130515/20130515170419_688.png" alt=""></p>
+<p>最后整个效果中，长方体呈现的是红色。我们要说的是，长方体显示红色，是因为<strong>长方体反射了红色的光</strong>，长方体本身的颜色是0x880000，光源的颜色是0xFF0000，红色的光照在物体上，物体反射了红色的光，所以呈现红色。<br><strong><br>我们现在一直在使用环境光，从环境光的构造函数来看，它只有颜色，其位置对场景中的物体并没有影响，因为他是均匀的反射到物体的表面的。</strong></p>
+<h4 id="2-4-脚印三：环境光对物体的影响"><a href="#2-4-脚印三：环境光对物体的影响" class="headerlink" title="2.4 脚印三：环境光对物体的影响"></a>2.4 脚印三：环境光对物体的影响</h4><p>环境光就是在场景中无处不在的光，它对物体的影响是均匀的，也就是无论你从物体的那个角度观察，物体的颜色都是一样的，这就是伟大的环境光。</p>
+<p><strong>你可以把环境光放在任何一个位置，它的光线是不会衰减的，是永恒的某个强度的一种光源。</strong></p>
+<h4 id="2-5脚印四：方向光（平行光）"><a href="#2-5脚印四：方向光（平行光）" class="headerlink" title="2.5脚印四：方向光（平行光）"></a>2.5脚印四：方向光（平行光）</h4><p>平行光又称为方向光（Directional Light），是一组没有衰减的平行的光线，类似太阳光的效果。</p>
+<p>方向光的模型如图：<br><img src="http://www.hewebgl.com/attached/image/20130516/20130516171702_524.jpg" alt=""><br>方向光的构造函数如下所示：</p>
+<p><strong>THREE.DirectionalLight = function ( hex, intensity )</strong></p>
+<p>其参数如下：</p>
+<ul>
+<li><p>Hex：关系的颜色，用16进制表示</p>
+</li>
+<li><p>Intensity：光线的强度，默认为1。因为RGB的三个值均在0~255之间，不能反映出光照的强度变化，光照越强，物体表面就更明亮。它的取值范围是0到1。如果为0，表示光线基本没什么作用，那么物体就会显示为黑色。呆会你可以尝试来更改这个参数，看看实际的效果</p>
+</li>
+</ul>
+<p>我们来看一个方向光的例子：</p>
+<p>一个红色的方向光，把它放在（0,0,1）的位置，密度为1，照射在一个长方体中。效果如下图所示：</p>
+<p><img src="http://www.hewebgl.com/attached/image/20130516/20130516172030_538.png" alt=""></p>
+<p>平行光有一个方向，它的方向是如何决定的呢？<br>方向由<strong>位置</strong>和<strong>原点</strong>（0,0,0）来决定，方向光只与方向有关，与离物体的远近无关。分别将平行光放到（0,0,100），（0,0,50），（0,0,25），（0,0,1），渲染的结果还是红色和黑色，见下图，<strong>颜色的深浅不与离物体的距离相关。</strong></p>
+<p>但是它与方向有关，如果，我们灯光的位置改为（1,0,0.5），那么效果如图所示：<br><img src="http://www.hewebgl.com/attached/image/20130516/20130516172333_384.png" alt=""></p>
+<p>未完待续</p>
+<hr>
+<p>本作品采用 <a href="https://creativecommons.org/licenses/by-sa/2.5/cn/" target="_blank" rel="noopener">知识共享署名 2.5 中国大陆许可协议 </a>进行许可，欢迎转载，但转载请注明来自<a href="https://jaymo666.github.io/">JayMo</a>，并保持转载后文章内容的完整。本人保留所有版权相关权利。<br>本文永久链接：<a href="http://jaymo666.github.io/2017/09/22/Threejs2(1)/">http://jaymo666.github.io/2017/09/22/Threejs2(1)/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="jaymo666.github.io/tags/js/" rel="tag"># js</a>
+          
+            <a href="jaymo666.github.io/tags/初级/" rel="tag"># 初级</a>
+          
+            <a href="jaymo666.github.io/tags/3D/" rel="tag"># 3D</a>
+          
+            <a href="jaymo666.github.io/tags/threejs/" rel="tag"># threejs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="jaymo666.github.io/2017/09/22/Threejs2/" rel="next" title="Threejs中的各种光源（Threejs第二章）">
+                <i class="fa fa-chevron-left"></i> Threejs中的各种光源（Threejs第二章）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="jaymo666.github.io/2017/09/22/Threejs3/" rel="prev" title="Threejs中的各种光源（Threejs第三章）">
+                Threejs中的各种光源（Threejs第三章） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      <div class="theme-info">
+        <div class="powered-by"></div>
+        <span class="post-count">共字</span>
+      </div>
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="jaymo666.github.io/images/avatar.jpg"
+               alt="莫爵贵(JayMo)" />
+          <p class="site-author-name" itemprop="name">莫爵贵(JayMo)</p>
+           
+              <p class="site-description motion-element" itemprop="description">JayMo JayMo个人网站 博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="jaymo666.github.io/archives/">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="jaymo666.github.io/categories/index(1).html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="jaymo666.github.io/tags/index(1).html">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28285910&auto=0&height=66"></iframe>
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章"><span class="nav-number">1.</span> <span class="nav-text">第二章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Threejs中的各种光源"><span class="nav-number">1.1.</span> <span class="nav-text">1.Threejs中的各种光源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1光源基类"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1光源基类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2由基类派生出来的其他种类光源"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2由基类派生出来的其他种类光源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-1-环境光"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1.2.1 环境光</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-2点光源"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">1.2.2点光源</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-材质与光源的关系"><span class="nav-number">1.2.</span> <span class="nav-text">2.材质与光源的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-材质的真相"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 材质的真相</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-脚印一：不带任何光源的物体"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">2.2  脚印一：不带任何光源的物体</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-脚印二：兰伯特材质与光源"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.3 脚印二：兰伯特材质与光源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-脚印三：环境光对物体的影响"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.4 脚印三：环境光对物体的影响</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5脚印四：方向光（平行光）"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.5脚印四：方向光（平行光）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">莫爵贵(JayMo)</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="jaymo666.github.io/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="jaymo666.github.io/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="jaymo666.github.io/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="jaymo666.github.io/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-jaymo666-github-io.disqus.com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://jaymo666.github.io/2017/09/22/Threejs2(1)/';
+          this.page.identifier = '2017/09/22/Threejs2(1)/';
+          this.page.title = 'Threejs中的各种光源（Threejs第二章）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jaymo666-github-io.disqus.com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d37aea056c664d75ac440513eaadf347",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "jaymo666.github.io/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("ImvYovo3ihlydPX6HiNAgCIE-gzGzoHsz", "tAeYBuQBAgUF3CcRpq5KNk4z");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

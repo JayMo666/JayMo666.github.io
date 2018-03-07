@@ -1,0 +1,1479 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="jaymo666.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="jaymo666.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="jaymo666.github.io/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,函数,this," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="jaymo666.github.io/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Function对象还提供了call、apply和bind等方法来改变函数的this指向，其中call和apply主动执行函数，bind一般在事件回调中使用，而call和apply的区别只是参数的传递方式不同">
+<meta name="keywords" content="js,函数,this">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解JS的call,apply和bind">
+<meta property="og:url" content="http://jaymo666.github.io/2017/06/20/函数指针-this/index.html">
+<meta property="og:site_name" content="JayMo个人网站">
+<meta property="og:description" content="Function对象还提供了call、apply和bind等方法来改变函数的this指向，其中call和apply主动执行函数，bind一般在事件回调中使用，而call和apply的区别只是参数的传递方式不同">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-03T11:29:25.574Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详解JS的call,apply和bind">
+<meta name="twitter:description" content="Function对象还提供了call、apply和bind等方法来改变函数的this指向，其中call和apply主动执行函数，bind一般在事件回调中使用，而call和apply的区别只是参数的传递方式不同">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: 'jaymo666.github.io/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jaymo666.github.io/2017/06/20/函数指针-this/"/>
+
+
+
+
+
+  <title>详解JS的call,apply和bind | JayMo个人网站</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6a6c220a2d326597cdbfe3ee99d62b3a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="jaymo666.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JayMo个人网站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">打造属于自己的超能力</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="jaymo666.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="jaymo666.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="jaymo666.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="jaymo666.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="jaymo666.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="jaymo666.github.io/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.iojaymo666.github.io/2017/06/20/函数指针-this/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莫爵贵(JayMo)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="jaymo666.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JayMo个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">详解JS的call,apply和bind</h1>
+        
+
+        <div class="post-meta">
+
+    
+
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T23:58:25+08:00">
+                2017-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="jaymo666.github.io/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="jaymo666.github.io/2017/06/20/函数指针-this/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/20/函数指针-this/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="jaymo666.github.io/2017/06/20/函数指针-this/" class="leancloud_visitors" data-flag-title="详解JS的call,apply和bind">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Function对象还提供了call、apply和bind等方法来改变函数的this指向，其中call和apply主动执行函数，bind一般在事件回调中使用，而call和apply的区别只是参数的传递方式不同<br><a id="more"></a></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=447960871&auto=1&height=66"></iframe>
+
+<blockquote>
+<p><strong>深入理解call,apply和bind</strong><br>在JavaScript 中，<code>call</code>、<code>apply</code> 和 <code>bind</code> 是 Function 对象自带的三个方法，这三个方法的主要作用是改变函数中的 this 指向，从而可以达到<code>接花移木</code>的效果。本文将对这三个方法进行详细的讲解，并列出几个经典应用场景。</p>
+</blockquote>
+<h2 id="1、call-thisArgs-args…"><a href="#1、call-thisArgs-args…" class="headerlink" title="1、call(thisArgs [,args…])"></a>1、call(thisArgs [,args…])</h2><p>该方法可以传递一个<code>thisArgs参数</code>和一个<code>参数列表</code>，<strong>thisArgs 指定了函数在运行期的调用者</strong>，也就是函数中的 this 对象，而参数列表会被传入调用函数中。thisArgs 的取值有以下4种情况：<br>（1） 不传，或者传null,undefined， 函数中的 this 指向 window 对象</p>
+<p>（2） 传递另一个函数的函数名，函数中的 this 指向这个函数的引用</p>
+<p>（3） 传递字符串、数值或布尔类型等基础类型，函数中的 this 指向其对应的包装对象，如 String、Number、Boolean</p>
+<p>（4） 传递一个对象，函数中的 this 指向这个对象</p>
+<pre><code>function a(){
+    console.log(this); //输出函数a中的this对象
+}
+function b(){} //定义函数b
+
+var obj = {name:&apos;onepixel&apos;}; //定义对象obj
+
+a.call(); //window
+a.call(null); //window
+a.call(undefined);//window
+a.call(1); //Number
+a.call(&apos;&apos;); //String
+a.call(true); //Boolean
+a.call(b);// function b(){}
+a.call(obj); //Object
+</code></pre><p>这是call 的<code>核心功能</code>，<strong>它允许你在一个对象上调用该对象没有定义的方法</strong>，并且这个方法可以访问该对象中的属性，至于这样做有什么好处，我待会再讲，我们先看一个简单的例子：</p>
+<pre><code>var a = {
+
+    name:&apos;onepixel&apos;, //定义a的属性
+
+    say:function(){ //定义a的方法
+        console.log(&quot;Hi,I&apos;m function a!&quot;);
+    }
+};
+
+function b(name){
+    console.log(&quot;Post params: &quot;+ name);
+    console.log(&quot;I&apos;m &quot;+ this.name);
+    this.say();
+}
+
+b.call(a,&apos;test&apos;);
+&gt;&gt;
+Post params: test
+I&apos;m onepixel
+I&apos;m function a!
+</code></pre><p>当执行b.call 时，字符串<code>test</code>作为参数传递给了函数b,由于call的作用，函数b中的this指向了对象a, 因此相当于调用了对象a上的函数b,而实际上a中没有定义b 。</p>
+<h2 id="2、apply-thisArgs-args"><a href="#2、apply-thisArgs-args" class="headerlink" title="2、apply(thisArgs[,args[]])"></a>2、apply(thisArgs[,args[]])</h2><p>apply 和 call 的<strong>唯一区别</strong>是<strong>第二个参数的传递方式不同</strong>，apply 的第二个参数必须是一个<code>数组</code>，而 call 允许传递一个参数列表。值得你注意的是，虽然 apply 接收的是一个参数数组，但在传递给调用函数时，却是以参数列表的形式传递，我们看个简单的例子：</p>
+<pre><code>function b(x,y,z){
+    console.log(x,y,z);
+}
+
+b.apply(null,[1,2,3]); // 1 2 3
+</code></pre><p>apply 的这个特性很重要，我们会在下面的应用场景中提到这个特性。</p>
+<h2 id="3、bind-thisArgs-args…"><a href="#3、bind-thisArgs-args…" class="headerlink" title="3、bind(thisArgs [,args…])"></a>3、bind(thisArgs [,args…])</h2><p>bind是ES5 新增的一个方法，它的传参和call类似，但又和 call/apply 有着显著的不同，即<strong>调用 call 或 apply 都会自动执行对应的函数</strong>，而 <strong>bind 不会执行对应的函数</strong>，只是返回了对函数的引用。粗略一看，bind 似乎比call/apply 要落后一些，那ES5为什么还要引入bind 呢？</p>
+<p>其实，ES5引入 bind 的真正目的是为了弥补 call/apply 的不足，由于 call/apply 会对目标函数自动执行，从而导致它无法在事件绑定函数中使用，因为事件绑定函数不需要我们手动执行，它是在事件被触发时由JS 内部自动执行的。而 <strong>bind 在实现改变函数 this 的同时又不会自动执行目标函数</strong>，因此可以完美的解决上述问题，看一个例子就能明白：</p>
+<pre><code>var obj = {name:&apos;onepixel&apos;};
+
+/**
+ * 给document添加click事件监听，并绑定onClick函数
+ * 通过bind方法设置onClick的this为obj，并传递参数p1,p2
+ */
+document.addEventListener(&apos;click&apos;,onClick.bind(obj,&apos;p1&apos;,&apos;p2&apos;),false);
+
+//当点击网页时触发并执行
+function onClick(a,b){
+    console.log(
+            this.name, //onepixel
+            a, //p1
+            b  //p2
+    )
+}
+</code></pre><p>当点击网页时，onClick 被触发执行，输出onepixel p1 p2, 说明 onClick 中的 this 被 bind 改变成了obj 对象，为了对 bind 进行深入的理解，我们来看一下 bind 的<code>polyfill</code> 实现：</p>
+<pre><code>if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+        var aArgs = Array.prototype.slice.call(arguments, 1),
+            fToBind = this, //this在这里指向的是目标函数
+            fBound = function () {
+                return fToBind.apply(
+                    //如果外部执行var obj = new fBound(),则将obj作为最终的this，放弃使用oThis
+                    this instanceof fToBind
+                            ? this  //此时的this就是new出的obj
+                            : oThis || this, //如果传递的oThis无效，就将fBound的调用者作为this
+
+                    //将通过bind传递的参数和调用时传递的参数进行合并，并作为最终的参数传递
+                    aArgs.concat(Array.prototype.slice.call(arguments)));
+            };
+
+        //将目标函数的原型对象拷贝到新函数中，因为目标函数有可能被当作构造函数使用
+        fBound.prototype = this.prototype;
+
+        //返回fBond的引用，由外部按需调用
+        return fBound;
+    };
+}
+</code></pre><p><strong>一旦函数通过bind传递了有效的this对象，则该函数在运行期的this将指向这个对象，即使通过call或apply来试图改变this的指向也是徒劳的。</strong></p>
+<pre><code>//实现数组的去重功能
+Array.prototype.unique = function(fn) {
+        var rst = [];
+        var tmp = {};
+        this.forEach(function(val) {
+            //使用call来改变fn的this指向，这里传window
+            var key = &apos;uniq&apos; + (typeof fn === &apos;function&apos; ? fn.call(window, val) : val);
+            if (!tmp.hasOwnProperty(key)) {
+                rst.push(val);
+                tmp[key] = null;
+            }
+        }, this);
+
+        return rst;
+}
+
+//对象数组去重
+var arr = [
+    { id: 2 }, { id: 4 }, { id: 3 }, { id: 3 }, { id: 4 }, { id: 6 }
+]
+arr.unique(function(v) {
+     console.log(this) //使用bind传递了Array,则this一定是Array,而不会是window
+     return v.id
+}.bind(Array));
+</code></pre><h2 id="4、应用场景一：继承"><a href="#4、应用场景一：继承" class="headerlink" title="4、应用场景一：继承"></a>4、应用场景一：继承</h2><p>大家知道，JavaScript中没有诸如Java、C# 等高级语言中的extend 关键字，因此JS 中没有继承的概念，如果一定要继承的话，call 和 apply 可以实现这个功能：</p>
+<pre><code>function Animal(name,weight){
+   this.name = name;
+   this.weight = weight;
+}
+
+function Cat(){
+    Animal.call(this,&apos;cat&apos;,&apos;50&apos;);
+  //Animal.apply(this,[&apos;cat&apos;,&apos;50&apos;]);
+
+   this.say = function(){
+      console.log(&quot;I am &quot; + this.name+&quot;,my weight is &quot; + this.weight);
+   }
+}
+
+var cat = new Cat();
+cat.say();//I am cat,my weight is 50
+</code></pre><p>当通过new 运算符产生了cat 时，<strong>Cat中的 this 就指向了cat对象</strong>(关于new运算符的讲解，请参考JS构造函数和new运算符，而继承的关键是在于Cat中执行了Animal.call(this,’cat’,’50’) 这句话，在call中将this作为thisArgs参数传递，于是<strong>Animal 方法中的 this 就指向了Cat中的 this</strong>，而 cat 中的 this 指向的是 cat 对象，所以Animal 中的 this 指向的就是 cat 对象，在 Animal 中定义了name 和 weight 属性，就相当于在 cat 中定义了这些属性，因此 cat 对象便拥有了Animal 中定义的属性，从而达到了继承的目的。</p>
+<h2 id="5、应用场景二：移花接木"><a href="#5、应用场景二：移花接木" class="headerlink" title="5、应用场景二：移花接木"></a>5、应用场景二：移花接木</h2><p>在讲下面的内容之前，我们首先来认识一下JavaScript 中的一个非标准专业术语：<code>ArrayLike</code> (类数组/伪数组)</p>
+<p>ArrayLike 对象即拥有数组的一部分行为，在DOM 中早已表现出来，而jQuery 的崛起让ArrayLike 在JavaScript 中大放异彩。ArrayLike 对象的精妙在于它和JS 原生的 Array 类似，但是它是自由构建的，它来自开发者对JavaScript 对象的扩展，也就是说：<strong>对于它的原型(prototype)我们可以自由定义，而不会污染到JS原生的Array。</strong> </p>
+<p><strong>ArrayLike 对象在JS中被广泛使用</strong>，比如DOM 中的NodeList, 函数中的arguments 都是<code>类数组对象</code>，<strong>这些对象像数组一样存储着每一个元素，但它没有操作数组的方法</strong>，而我们可以通过call 将数组的某些方法<code>移接</code>到ArrayLike 对象，从而达到操作其元素的目的。比如我们可以这样遍历函数中的arguments:</p>
+<pre><code>function test(){
+    //检测arguments是否为Array的实例
+    console.log(
+            arguments instanceof Array, //false
+            Array.isArray(arguments)  //false
+    );
+    //判断arguments是否有forEach方法
+    console.log(arguments.forEach); //undefined
+
+    // 将数组中的forEach应用到arguments上
+    Array.prototype.forEach.call(arguments,function(item){
+        console.log(item); // 1 2 3 4
+    });
+
+}
+test(1,2,3,4);
+</code></pre><p>除此之外，对于apply 而言，我们上面提到了它独有的一个特性，即<strong>apply 接收的是数组，在传递给调用函数的时候是以参数列表传递的。</strong> 这个特性让apply 看起来比call 略胜一筹，比如有这样一个场景：给定一个数组[1,3,4,7]，然后求数组中的最大元素，而我们知道，数组中并没有获取最大值的方法，一般情况下，你需要通过编写代码来实现。而我们知道，Math 对象中有一个获取最大值的方法，即Math.max()， max方法需要传递一个参数列表，然后返回这些参数中的最大值。而apply 不仅可以将Math 对象的max 方法应用到其他对象上，还可以将一个数组转化为参数列表传递给max,看代码就能一目了然：</p>
+<pre><code>var arr = [2,3,1,5,4];
+
+Math.max.apply(null,arr); // 5
+</code></pre><p>以上便是call 和apply 比较经典的几个应用场景，熟练掌握这些技巧，并把这些特性应用到你的实际项目中，会使你的代码看起来更加耐人寻味！</p>
+<hr>
+<p>本作品采用 <a href="https://creativecommons.org/licenses/by-sa/2.5/cn/" target="_blank" rel="noopener">知识共享署名 2.5 中国大陆许可协议 </a>进行许可，欢迎转载，但转载请注明来自<a href="https://jaymo666.github.io/">JayMo</a>，并保持转载后文章内容的完整。本人保留所有版权相关权利。<br>本文永久链接：<a href="http://jaymo666.github.io/2017/06/20/函数指针-this/">http://jaymo666.github.io/2017/06/20/函数指针-this/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="jaymo666.github.io/tags/js/" rel="tag"># js</a>
+          
+            <a href="jaymo666.github.io/tags/函数/" rel="tag"># 函数</a>
+          
+            <a href="jaymo666.github.io/tags/this/" rel="tag"># this</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="jaymo666.github.io/2017/06/20/函数指针-this(1)/" rel="next" title="详解JS的call,apply和bind">
+                <i class="fa fa-chevron-left"></i> 详解JS的call,apply和bind
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="jaymo666.github.io/2017/06/24/Closure(1)/" rel="prev" title="闭包">
+                闭包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      <div class="theme-info">
+        <div class="powered-by"></div>
+        <span class="post-count">共字</span>
+      </div>
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="jaymo666.github.io/images/avatar.jpg"
+               alt="莫爵贵(JayMo)" />
+          <p class="site-author-name" itemprop="name">莫爵贵(JayMo)</p>
+           
+              <p class="site-description motion-element" itemprop="description">JayMo JayMo个人网站 博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="jaymo666.github.io/archives/">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="jaymo666.github.io/categories/index(1).html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="jaymo666.github.io/tags/index(1).html">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28285910&auto=0&height=66"></iframe>
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、call-thisArgs-args…"><span class="nav-number">1.</span> <span class="nav-text">1、call(thisArgs [,args…])</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、apply-thisArgs-args"><span class="nav-number">2.</span> <span class="nav-text">2、apply(thisArgs[,args[]])</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、bind-thisArgs-args…"><span class="nav-number">3.</span> <span class="nav-text">3、bind(thisArgs [,args…])</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、应用场景一：继承"><span class="nav-number">4.</span> <span class="nav-text">4、应用场景一：继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、应用场景二：移花接木"><span class="nav-number">5.</span> <span class="nav-text">5、应用场景二：移花接木</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">莫爵贵(JayMo)</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="jaymo666.github.io/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="jaymo666.github.io/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="jaymo666.github.io/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="jaymo666.github.io/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="jaymo666.github.io/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-jaymo666-github-io.disqus.com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://jaymo666.github.io/2017/06/20/函数指针-this/';
+          this.page.identifier = '2017/06/20/函数指针-this/';
+          this.page.title = '详解JS的call,apply和bind';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jaymo666-github-io.disqus.com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d37aea056c664d75ac440513eaadf347",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "jaymo666.github.io/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("ImvYovo3ihlydPX6HiNAgCIE-gzGzoHsz", "tAeYBuQBAgUF3CcRpq5KNk4z");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
