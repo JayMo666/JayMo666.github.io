@@ -220,10 +220,10 @@
   
   <entry>
     <title>Threejs中的各种光源（Threejs第二章）</title>
-    <link href="http://jaymo666.github.io/2017/09/22/Threejs2(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/22/Threejs2(1)/</id>
+    <link href="http://jaymo666.github.io/2017/09/22/Threejs2/"/>
+    <id>http://jaymo666.github.io/2017/09/22/Threejs2/</id>
     <published>2017-09-22T05:34:47.000Z</published>
-    <updated>2017-12-03T12:41:54.229Z</updated>
+    <updated>2017-12-03T11:29:52.275Z</updated>
     
     <summary type="html">
     
@@ -246,10 +246,10 @@
   
   <entry>
     <title>Threejs中的各种光源（Threejs第二章）</title>
-    <link href="http://jaymo666.github.io/2017/09/22/Threejs2/"/>
-    <id>http://jaymo666.github.io/2017/09/22/Threejs2/</id>
+    <link href="http://jaymo666.github.io/2017/09/22/Threejs2(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/22/Threejs2(1)/</id>
     <published>2017-09-22T05:34:47.000Z</published>
-    <updated>2017-12-03T11:29:52.275Z</updated>
+    <updated>2017-12-03T12:41:54.229Z</updated>
     
     <summary type="html">
     
@@ -467,30 +467,6 @@
   </entry>
   
   <entry>
-    <title>R笔记</title>
-    <link href="http://jaymo666.github.io/2017/09/20/R%E7%AC%94%E8%AE%B0/"/>
-    <id>http://jaymo666.github.io/2017/09/20/R笔记/</id>
-    <published>2017-09-20T15:54:46.000Z</published>
-    <updated>2017-12-03T11:30:05.935Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一门可视化语言。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="R" scheme="http://jaymo666.github.io/categories/R/"/>
-    
-    
-      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
-    
-      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-      <category term="R" scheme="http://jaymo666.github.io/tags/R/"/>
-    
-  </entry>
-  
-  <entry>
     <title>J微信时代，博客阅读</title>
     <link href="http://jaymo666.github.io/2017/09/20/%E5%BE%AE%E4%BF%A1%E6%97%B6%E4%BB%A3%EF%BC%8C%E5%8D%9A%E5%AE%A2%E9%98%85%E8%AF%BB/"/>
     <id>http://jaymo666.github.io/2017/09/20/微信时代，博客阅读/</id>
@@ -513,6 +489,30 @@
       <category term="写作" scheme="http://jaymo666.github.io/tags/%E5%86%99%E4%BD%9C/"/>
     
       <category term="阅读" scheme="http://jaymo666.github.io/tags/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R笔记</title>
+    <link href="http://jaymo666.github.io/2017/09/20/R%E7%AC%94%E8%AE%B0(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/20/R笔记(1)/</id>
+    <published>2017-09-20T15:54:46.000Z</published>
+    <updated>2017-12-03T12:42:05.641Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一门可视化语言。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="R" scheme="http://jaymo666.github.io/categories/R/"/>
+    
+    
+      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
+    
+      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+      <category term="R" scheme="http://jaymo666.github.io/tags/R/"/>
     
   </entry>
   
