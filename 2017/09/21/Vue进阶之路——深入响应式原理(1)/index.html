@@ -83,6 +83,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="JayMo个人网站" type="application/atom+xml" />
+
 
 
 
@@ -442,7 +444,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  字
+                  1,278字
                 </span>
               
 
@@ -458,7 +460,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  分钟
+                  5分钟
                 </span>
               
             </div>
@@ -483,24 +485,24 @@
 <h2 id="如何追踪变化"><a href="#如何追踪变化" class="headerlink" title="如何追踪变化"></a>如何追踪变化</h2><p>把一个普通 <code>JavaScript</code> 对象传给 Vue 实例的 <code>data</code>选项，Vue 将<strong>遍历</strong>此对象所有的属性，并使用 <code>Object.defineProperty</code> 把这些属性全部转为<code>getter</code>/<code>setter</code>。</p>
 <p>每个组件实例都有相应的 <code>watcher</code> 实例对象，它会在组件渲染的过程中<strong>把属性记录为依赖</strong>，之后当依赖项的 <code>setter</code>被调用时，会通知 <code>watcher</code> 重新计算，从而致使它关联的组件得以更新。</p>
 <p><img src="https://cn.vuejs.org/images/data.png" alt=""></p>
-<h2 id="变化检测问题"><a href="#变化检测问题" class="headerlink" title="变化检测问题"></a>变化检测问题</h2><p>受现代 JavaScript 的限制,<strong>Vue 不能检测到对象属性的添加或删除</strong>。由于 Vue 会在初始化实例时对属性执行 getter/setter 转化过程，所以<strong>属性必须在 data 对象上存在</strong>才能让 Vue 转换它，这样才能让它是响应的。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;</div><div class="line">  data:&#123;</div><div class="line">  a:1</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// `vm.a` 是响应的</div><div class="line">vm.b = 2</div><div class="line">// `vm.b` 是非响应的</div></pre></td></tr></table></figure></p>
+<h2 id="变化检测问题"><a href="#变化检测问题" class="headerlink" title="变化检测问题"></a>变化检测问题</h2><p>受现代 JavaScript 的限制,<strong>Vue 不能检测到对象属性的添加或删除</strong>。由于 Vue 会在初始化实例时对属性执行 getter/setter 转化过程，所以<strong>属性必须在 data 对象上存在</strong>才能让 Vue 转换它，这样才能让它是响应的。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">  data:&#123;</span><br><span class="line">  a:1</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">// `vm.a` 是响应的</span><br><span class="line">vm.b = 2</span><br><span class="line">// `vm.b` 是非响应的</span><br></pre></td></tr></table></figure></p>
 <p>Vue 不允许在已经创建的实例上动态添加新的<strong>根级响应式属性</strong>(root-level reactive property)。然而它可以使用 <code>Vue.set(object, key, value)</code>方法将响应属性添加到嵌套的对象上：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vue.set(vm.someObject, &apos;b&apos;, 2)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(vm.someObject, &apos;b&apos;, 2)</span><br></pre></td></tr></table></figure>
 <p>您还可以使用<code>vm.$set</code>实例方法，这也是全局 Vue.set 方法的<code>别名</code>：</p>
-<p>有时你想<strong>向已有对象上添加一些属性</strong>，例如使用 <code>Object.assign()</code>或 <code>_.extend()</code> 方法来添加属性。但是，添加到对象上的新属性不会触发更新。在这种情况下可以<strong>创建一个新的对象</strong>，让它包含原对象的属性和新的属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 代替 `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</div><div class="line">this.someObject = Object.assign(&#123;&#125;, this.someObject, &#123; a: 1, b: 2 &#125;)</div></pre></td></tr></table></figure></p>
+<p>有时你想<strong>向已有对象上添加一些属性</strong>，例如使用 <code>Object.assign()</code>或 <code>_.extend()</code> 方法来添加属性。但是，添加到对象上的新属性不会触发更新。在这种情况下可以<strong>创建一个新的对象</strong>，让它包含原对象的属性和新的属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 代替 `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span><br><span class="line">this.someObject = Object.assign(&#123;&#125;, this.someObject, &#123; a: 1, b: 2 &#125;)</span><br></pre></td></tr></table></figure></p>
 <h2 id="声明响应式属性"><a href="#声明响应式属性" class="headerlink" title="声明响应式属性"></a>声明响应式属性</h2><p>由于 Vue 不允许动态添加根级响应式属性，所以你必须<strong>在初始化实例前声明根级响应式属性，哪怕只是一个空值:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    // 声明 message 为一个空值字符串</div><div class="line">    message: &apos;&apos;</div><div class="line">  &#125;,</div><div class="line">  template: &apos;&lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;&apos;</div><div class="line">&#125;)</div><div class="line">// 之后设置 `message` </div><div class="line">vm.message = &apos;Hello!&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    // 声明 message 为一个空值字符串</span><br><span class="line">    message: &apos;&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: &apos;&lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;&apos;</span><br><span class="line">&#125;)</span><br><span class="line">// 之后设置 `message` </span><br><span class="line">vm.message = &apos;Hello!&apos;</span><br></pre></td></tr></table></figure>
 <p>如果你在 data 选项中<strong>未声明 message</strong>，Vue 将<strong>警告</strong>你渲染函数在试图访问的属性不存在。</p>
 <p><code>data</code>对象就像组件状态的概要，提前声明所有的响应式属性，可以让组件代码<strong>在以后重新阅读</strong>或<strong>其他开发人员阅读时更易于被理解</strong>。</p>
 <h2 id="异步更新队列"><a href="#异步更新队列" class="headerlink" title="异步更新队列"></a>异步更新队列</h2><p>可能你还没有注意到，Vue 异步执行 DOM 更新。只要观察到<strong>数据变化</strong>，Vue 将<strong>开启一个队列</strong>，并缓冲在同一事件循环中发生的所有数据改变。<strong>如果同一个 watcher 被多次触发，只会一次推入到队列中。</strong>这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作上非常重要。然后，在下一个的事件循环“tick”中，Vue 刷新队列并执行实际（已去重的）工作。Vue 在内部尝试对异步队列使用原生的 <code>Promise.then</code> 和<code>MutationObserver</code>，如果执行环境不支持，会采用 <code>setTimeout(fn, 0)</code> 代替。</p>
-<p>例如，当你设置 <code>vm.someData = &#39;new value&#39;</code>，<strong>该组件不会立即重新渲染。</strong>当刷新队列时，组件会在事件循环队列清空时的下一个“tick”更新。多数情况我们不需要关心这个过程，但是如果你想在 DOM 状态更新后做点什么，这就可能会有些棘手。虽然 Vue.js 通常鼓励开发人员沿着“数据驱动”的方式思考，避免直接接触 DOM，但是有时我们确实要这么做。为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 <code>Vue.nextTick(callback)</code>。这样回调函数在 DOM 更新完成后就会调用。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;example&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;</div><div class="line">  el: &apos;#example&apos;,</div><div class="line">  data: &#123;</div><div class="line">    message: &apos;123&apos;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">vm.message = &apos;new message&apos; // 更改数据</div><div class="line">vm.$el.textContent === &apos;new message&apos; // false</div><div class="line">Vue.nextTick(function () &#123;</div><div class="line">  vm.$el.textContent === &apos;new message&apos; // true</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>在组件内使用 <code>vm.$nextTick()</code> 实例方法特别方便，因为它不需要全局<code>Vue</code>，并且回调函数中的 <code>this</code> 将自动绑定到当前的 Vue 实例上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Vue.component(&apos;example&apos;, &#123;</div><div class="line">  template: &apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;,</div><div class="line">  data: function () &#123;</div><div class="line">    return &#123;</div><div class="line">      message: &apos;没有更新&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    updateMessage: function () &#123;</div><div class="line">      this.message = &apos;更新完成&apos;</div><div class="line">      console.log(this.$el.textContent) // =&gt; &apos;没有更新&apos;</div><div class="line">      this.$nextTick(function () &#123;</div><div class="line">        console.log(this.$el.textContent) // =&gt; &apos;更新完成&apos;</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>例如，当你设置 <code>vm.someData = &#39;new value&#39;</code>，<strong>该组件不会立即重新渲染。</strong>当刷新队列时，组件会在事件循环队列清空时的下一个“tick”更新。多数情况我们不需要关心这个过程，但是如果你想在 DOM 状态更新后做点什么，这就可能会有些棘手。虽然 Vue.js 通常鼓励开发人员沿着“数据驱动”的方式思考，避免直接接触 DOM，但是有时我们确实要这么做。为了在数据变化之后等待 Vue 完成更新 DOM ，可以在数据变化之后立即使用 <code>Vue.nextTick(callback)</code>。这样回调函数在 DOM 更新完成后就会调用。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;example&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">  el: &apos;#example&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;123&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.message = &apos;new message&apos; // 更改数据</span><br><span class="line">vm.$el.textContent === &apos;new message&apos; // false</span><br><span class="line">Vue.nextTick(function () &#123;</span><br><span class="line">  vm.$el.textContent === &apos;new message&apos; // true</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在组件内使用 <code>vm.$nextTick()</code> 实例方法特别方便，因为它不需要全局<code>Vue</code>，并且回调函数中的 <code>this</code> 将自动绑定到当前的 Vue 实例上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;example&apos;, &#123;</span><br><span class="line">  template: &apos;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&apos;,</span><br><span class="line">  data: function () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &apos;没有更新&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    updateMessage: function () &#123;</span><br><span class="line">      this.message = &apos;更新完成&apos;</span><br><span class="line">      console.log(this.$el.textContent) // =&gt; &apos;没有更新&apos;</span><br><span class="line">      this.$nextTick(function () &#123;</span><br><span class="line">        console.log(this.$el.textContent) // =&gt; &apos;更新完成&apos;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <!--PC和WAP自适应版-->
 <p><div id="SOHUCS" sid="SourceID"></div> </p>
-<p><script type="text/javascript"><br>(function(){<br>var appid = ‘cysmzRdbl’;<br>var conf = ‘prod_7c789e58c2fd9306e64aff79a862b4df’;<br>var width = window.innerWidth || document.documentElement.clientWidth;<br>if (width &lt; 960) {<br>window.document.write(‘<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '">&lt;\/script&gt;’); } else { var loadJs=function(d,a){var c=document.getElementsByTagName(“head”)[0]||document.head||document.documentElement;var b=document.createElement(“script”);b.setAttribute(“type”,”text/javascript”);b.setAttribute(“charset”,”UTF-8”);b.setAttribute(“src”,d);if(typeof a===”function”){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e===”loaded”||e===”complete”){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs(“<a href="https://changyan.sohu.com/upload/changyan.js&quot;,function(){window.changyan.api.config({appid:appid,conf:conf})}">https://changyan.sohu.com/upload/changyan.js&quot;,function(){window.changyan.api.config({appid:appid,conf:conf})}</a>); } })(); </script></p>
+<p><script type="text/javascript"><br>(function(){<br>var appid = ‘cysmzRdbl’;<br>var conf = ‘prod_7c789e58c2fd9306e64aff79a862b4df’;<br>var width = window.innerWidth || document.documentElement.clientWidth;<br>if (width &lt; 960) {<br>window.document.write(‘<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '">&lt;\/script&gt;’); } else { var loadJs=function(d,a){var c=document.getElementsByTagName(“head”)[0]||document.head||document.documentElement;var b=document.createElement(“script”);b.setAttribute(“type”,”text/javascript”);b.setAttribute(“charset”,”UTF-8”);b.setAttribute(“src”,d);if(typeof a===”function”){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e===”loaded”||e===”complete”){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs(“<a href="https://changyan.sohu.com/upload/changyan.js&quot;,function(){window.changyan.api.config({appid:appid,conf:conf})})">https://changyan.sohu.com/upload/changyan.js&quot;,function(){window.changyan.api.config({appid:appid,conf:conf})})</a>; } })(); </script></p>
 <hr>
-<p>本作品采用 <a href="https://creativecommons.org/licenses/by-sa/2.5/cn/" target="_blank" rel="external">知识共享署名 2.5 中国大陆许可协议 </a>进行许可，欢迎转载，但转载请注明来自<a href="https://jaymo666.github.io/">JayMo</a>，并保持转载后文章内容的完整。本人保留所有版权相关权利。<br>本文永久链接：<a href="http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理(1)/">http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理(1)/</a></p>
+<p>本作品采用 <a href="https://creativecommons.org/licenses/by-sa/2.5/cn/" target="_blank" rel="noopener">知识共享署名 2.5 中国大陆许可协议 </a>进行许可，欢迎转载，但转载请注明来自<a href="https://jaymo666.github.io/">JayMo</a>，并保持转载后文章内容的完整。本人保留所有版权相关权利。<br>本文永久链接：<a href="http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理(1)/">http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理(1)/</a></p>
 
       
     </div>
@@ -549,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/21/Vue进阶之路——深入响应式原理/" rel="next" title="Vue进阶之路——深入响应式原理">
-                <i class="fa fa-chevron-left"></i> Vue进阶之路——深入响应式原理
+              <a href="/2017/09/21/Vue进阶之路——过渡效果(1)/" rel="next" title="Vue进阶之路——过渡效果">
+                <i class="fa fa-chevron-left"></i> Vue进阶之路——过渡效果
               </a>
             
           </div>
@@ -572,7 +574,7 @@
 
       <div class="theme-info">
         <div class="powered-by"></div>
-        <span class="post-count">共字</span>
+        <span class="post-count">共127.5k字</span>
       </div>
     </footer>
   </article>
@@ -651,7 +653,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -681,6 +683,13 @@
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
@@ -733,8 +742,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
