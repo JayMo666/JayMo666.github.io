@@ -39,18 +39,24 @@
   </entry>
   
   <entry>
-    <title>“hexo博客再配置”</title>
+    <title>hexo博客再配置</title>
     <link href="http://jaymo666.github.io/2018/03/08/%E2%80%9Chexo%E5%8D%9A%E5%AE%A2%E5%86%8D%E9%85%8D%E7%BD%AE%E2%80%9D/"/>
     <id>http://jaymo666.github.io/2018/03/08/“hexo博客再配置”/</id>
     <published>2018-03-08T04:09:30.000Z</published>
-    <updated>2018-03-08T04:09:30.280Z</updated>
+    <updated>2018-03-08T04:38:45.501Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;这是概要！
+      &lt;p&gt;记录更换电脑后开启的新功能
     
     </summary>
     
+      <category term="hexo" scheme="http://jaymo666.github.io/categories/hexo/"/>
+    
+    
+      <category term="博客" scheme="http://jaymo666.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="hexo" scheme="http://jaymo666.github.io/tags/hexo/"/>
     
   </entry>
   
