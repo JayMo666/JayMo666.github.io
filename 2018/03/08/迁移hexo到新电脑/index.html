@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="1、从官网Git下载git，在新电脑上安装，因为https速度慢，而且每次都要输入口令，常用的是使用ssh。使用下面方法创建：（1）打开git bash，在用户主目录下运行：ssh-keygen -t rsa -C “youremail@example.com“ 把其中的邮件地址换成自己的邮件地址，然后一路回车（2）最">
+<meta name="description" content="在更换新电脑的情况下恢复博客，保留了源码">
 <meta name="keywords" content="hexo,github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="迁移hexo到新电脑">
 <meta property="og:url" content="http://jaymo666.github.io/2018/03/08/迁移hexo到新电脑/index.html">
 <meta property="og:site_name" content="JayMo个人网站">
-<meta property="og:description" content="1、从官网Git下载git，在新电脑上安装，因为https速度慢，而且每次都要输入口令，常用的是使用ssh。使用下面方法创建：（1）打开git bash，在用户主目录下运行：ssh-keygen -t rsa -C “youremail@example.com“ 把其中的邮件地址换成自己的邮件地址，然后一路回车（2）最后完成后，会在用户主目录下生成.ssh目录，里面有id_rsa和id_rsa.p">
+<meta property="og:description" content="在更换新电脑的情况下恢复博客，保留了源码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-08T04:12:40.079Z">
+<meta property="og:updated_time" content="2018-03-08T04:36:39.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="迁移hexo到新电脑">
-<meta name="twitter:description" content="1、从官网Git下载git，在新电脑上安装，因为https速度慢，而且每次都要输入口令，常用的是使用ssh。使用下面方法创建：（1）打开git bash，在用户主目录下运行：ssh-keygen -t rsa -C “youremail@example.com“ 把其中的邮件地址换成自己的邮件地址，然后一路回车（2）最后完成后，会在用户主目录下生成.ssh目录，里面有id_rsa和id_rsa.p">
+<meta name="twitter:description" content="在更换新电脑的情况下恢复博客，保留了源码">
 
 
 
@@ -442,7 +442,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,044字
+                  1,063字
                 </span>
               
 
@@ -476,7 +476,8 @@
       
 
       
-        <p>1、从官网Git下载git，在新电脑上安装，因为https速度慢，而且每次都要输入口令，常用的是使用ssh。使用下面方法创建：<br>（1）打开git bash，在用户主目录下运行：ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“ 把其中的邮件地址换成自己的邮件地址，然后一路回车<br>（2）最后完成后，会在用户主目录下生成.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH key密钥对，id_rsa是私钥，千万不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。<br>（3）登陆GitHub，打开「Settings」-&gt;「SSH and GPG keys」，然后点击「new SSH key」，填上任意Title，在Key文本框里粘贴公钥id_rsa.pub文件的内容（千万不要粘贴成私钥了！），最后点击「Add SSH Key」，你就应该看到已经添加的Key。<br>注意：不要在git版本库中运行ssh，然后又将它提交，这样就把密码泄露出去了。<br>（3）<a href="https://coding.net" target="_blank" rel="noopener">https://coding.net</a> 中的ssh与github的共用</p>
+        <p>在更换新电脑的情况下恢复博客，保留了源码<a id="more"></a></p>
+<p>1、从官网Git下载git，在新电脑上安装，因为https速度慢，而且每次都要输入口令，常用的是使用ssh。使用下面方法创建：<br>（1）打开git bash，在用户主目录下运行：ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“ 把其中的邮件地址换成自己的邮件地址，然后一路回车<br>（2）最后完成后，会在用户主目录下生成.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH key密钥对，id_rsa是私钥，千万不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。<br>（3）登陆GitHub，打开「Settings」-&gt;「SSH and GPG keys」，然后点击「new SSH key」，填上任意Title，在Key文本框里粘贴公钥id_rsa.pub文件的内容（千万不要粘贴成私钥了！），最后点击「Add SSH Key」，你就应该看到已经添加的Key。<br>注意：不要在git版本库中运行ssh，然后又将它提交，这样就把密码泄露出去了。<br>（3）<a href="https://coding.net" target="_blank" rel="noopener">https://coding.net</a> 中的ssh与github的共用</p>
 <p>2、下载Node.js，并安装</p>
 <p>3、打开git bash客户端，输入 npm install hexo-cli -g，开始安装hexo</p>
 <p>4、下面就将原来的文件拷贝到新电脑中，但是要注意哪些文件是必须的，哪些文件是可以删除的。<br>（1）讨论下哪些文件是必须拷贝的：首先是之前自己修改的文件，像站点配置_config.yml，theme文件夹里面的主题，以及source里面自己写的博客文件，这些肯定要拷贝的。除此之外，还有三个文件需要有，就是scaffolds文件夹（文章的模板）、package.json（说明使用哪些包）和.gitignore（限定在提交的时候哪些文件可以忽略）。其实，这三个文件不是我们修改的，所以即使丢失了，也没有关系，我们可以建立一个新的文件夹，然后在里面执行hexo init，就会生成这三个文件，我们只需要将它们拷贝过来使用即可。总结：_config.yml，theme/，source/，scaffolds/，package.json，.gitignore，是需要拷贝的。<br>（2）再讨论下哪些文件是不必拷贝的，或者说可以删除的：首先是.git文件，无论是在站点根目录下，还是主题目录下的.git文件，都可以删掉。然后是文件夹node_modules（在用npm install会重新生成），public（这个在用hexo g时会重新生成），.deploy_git文件夹（在使用hexo d时也会重新生成），db.json文件。其实上面这些文件也就是.gitignore文件里面记载的可以忽略的内容。总结：.git/，public/，.deploy_git/，db.json文件需要删除。</p>
@@ -548,7 +549,7 @@
 
       <div class="theme-info">
         <div class="powered-by"></div>
-        <span class="post-count">共128.5k字</span>
+        <span class="post-count">共128.6k字</span>
       </div>
     </footer>
   </article>
