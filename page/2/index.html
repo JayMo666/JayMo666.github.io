@@ -333,7 +333,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2017/09/21/Vue进阶之路——过渡效果/">
+    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2017/09/21/Vue进阶之路——过渡效果(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="莫爵贵(JayMo)">
@@ -352,7 +352,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/21/Vue进阶之路——过渡效果/" itemprop="url">Vue进阶之路——过渡效果</a></h1>
+                <a class="post-title-link" href="/2017/09/21/Vue进阶之路——过渡效果(1)/" itemprop="url">Vue进阶之路——过渡效果</a></h1>
         
 
         <div class="post-meta">
@@ -409,9 +409,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/21/Vue进阶之路——过渡效果/#comments" itemprop="discussionUrl">
+                <a href="/2017/09/21/Vue进阶之路——过渡效果(1)/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/21/Vue进阶之路——过渡效果/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/09/21/Vue进阶之路——过渡效果(1)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,7 +419,7 @@
 
           
           
-             <span id="/2017/09/21/Vue进阶之路——过渡效果/" class="leancloud_visitors" data-flag-title="Vue进阶之路——过渡效果">
+             <span id="/2017/09/21/Vue进阶之路——过渡效果(1)/" class="leancloud_visitors" data-flag-title="Vue进阶之路——过渡效果">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -444,7 +444,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,900字
+                  1,901字
                 </span>
               
 
@@ -479,10 +479,22 @@
 
       
         
-          <p>Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。</p>
+          Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。
+
+概述
+Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。
+包括以下工具：
+
+ * 在 CSS 过渡和动画中自动应用 class
+ * 可以配合使用第三方 CSS 动画库，如 Animate.css
+ * 在过渡钩子函数中使用 JavaScript 直接操作 DOM
+ * 可以配合使用第三方 JavaScript 动画库，如 Velocity.js
+
+单元素/组件的过渡
+Vue 提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加 entering/leaving 过
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/09/21/Vue进阶之路——过渡效果/#more" rel="contents">
+            <a class="btn" href="/2017/09/21/Vue进阶之路——过渡效果(1)/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -679,7 +691,15 @@
 
       
         
-          <p>Vue 最显著的特性之一便是不太引人注意的响应式系统<br>
+          Vue 最显著的特性之一便是不太引人注意的响应式系统
+
+
+Vue 最显著的特性之一便是不太引人注意的响应式系统(reactivity system)。模型层(model)只是普通 JavaScript 对象，修改它则更新视图(view)。
+
+如何追踪变化
+把一个普通 JavaScript 对象传给 Vue 实例的 data选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为getter/setter。
+
+每个组件实例都有相应的 watcher 实例对象，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 setter被调用时，会通知 
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/21/Vue进阶之路——深入响应式原理/#more" rel="contents">
@@ -733,7 +753,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2017/09/21/Vue进阶之路——过渡效果(1)/">
+    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2017/09/21/Vue进阶之路——过渡效果/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="莫爵贵(JayMo)">
@@ -752,7 +772,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/21/Vue进阶之路——过渡效果(1)/" itemprop="url">Vue进阶之路——过渡效果</a></h1>
+                <a class="post-title-link" href="/2017/09/21/Vue进阶之路——过渡效果/" itemprop="url">Vue进阶之路——过渡效果</a></h1>
         
 
         <div class="post-meta">
@@ -809,9 +829,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/21/Vue进阶之路——过渡效果(1)/#comments" itemprop="discussionUrl">
+                <a href="/2017/09/21/Vue进阶之路——过渡效果/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/21/Vue进阶之路——过渡效果(1)/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/09/21/Vue进阶之路——过渡效果/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -819,7 +839,7 @@
 
           
           
-             <span id="/2017/09/21/Vue进阶之路——过渡效果(1)/" class="leancloud_visitors" data-flag-title="Vue进阶之路——过渡效果">
+             <span id="/2017/09/21/Vue进阶之路——过渡效果/" class="leancloud_visitors" data-flag-title="Vue进阶之路——过渡效果">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -844,7 +864,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,901字
+                  1,900字
                 </span>
               
 
@@ -879,10 +899,22 @@
 
       
         
-          <p>Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。</p>
+          Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。
+
+概述
+Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。
+包括以下工具：
+
+ * 在 CSS 过渡和动画中自动应用 class
+ * 可以配合使用第三方 CSS 动画库，如 Animate.css
+ * 在过渡钩子函数中使用 JavaScript 直接操作 DOM
+ * 可以配合使用第三方 JavaScript 动画库，如 Velocity.js
+
+单元素/组件的过渡
+Vue 提供了 transition 的封装组件，在下列情形中，可以给任何元素和组件添加 entering/leaving 过
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/09/21/Vue进阶之路——过渡效果(1)/#more" rel="contents">
+            <a class="btn" href="/2017/09/21/Vue进阶之路——过渡效果/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1079,7 +1111,15 @@
 
       
         
-          <p>Vue 最显著的特性之一便是不太引人注意的响应式系统<br>
+          Vue 最显著的特性之一便是不太引人注意的响应式系统
+
+
+Vue 最显著的特性之一便是不太引人注意的响应式系统(reactivity system)。模型层(model)只是普通 JavaScript 对象，修改它则更新视图(view)。
+
+如何追踪变化
+把一个普通 JavaScript 对象传给 Vue 实例的 data选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为getter/setter。
+
+每个组件实例都有相应的 watcher 实例对象，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 setter被调用时，会通知 
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/21/Vue进阶之路——深入响应式原理(1)/#more" rel="contents">
@@ -1290,7 +1330,18 @@
 
       
         
-          <p>一门3D技术语言。<br>
+          一门3D技术语言。
+
+什么是threejs，很简单，你将它理解成three + js就可以了。three表示3D的意思，js表示javascript的意思。那么合起来，three.js就是使用javascript 来写3D程序的意思。
+Javascript是运行在网页端的脚本语言，那么毫无疑问Three.js也是运行在浏览器上的。
+
+##第一章
+来学习three.js之前最好了解一下WebGL。
+什么是WebGL?
+
+WebGL是在浏览器中实现三维效果的一套规范。
+
+使用WebGL原生的API来写3D程序是一件非常痛苦的事情，幸好，有很多同行花业余时间写了一些WebGL开源框架，其中three
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/21/Threejs/#more" rel="contents">
@@ -1501,188 +1552,21 @@
 
       
         
-          <p>一门3D技术语言。<br>
+          一门3D技术语言。
+
+什么是threejs，很简单，你将它理解成three + js就可以了。three表示3D的意思，js表示javascript的意思。那么合起来，three.js就是使用javascript 来写3D程序的意思。
+Javascript是运行在网页端的脚本语言，那么毫无疑问Three.js也是运行在浏览器上的。
+
+##第一章
+来学习three.js之前最好了解一下WebGL。
+什么是WebGL?
+
+WebGL是在浏览器中实现三维效果的一套规范。
+
+使用WebGL原生的API来写3D程序是一件非常痛苦的事情，幸好，有很多同行花业余时间写了一些WebGL开源框架，其中three
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/21/Threejs(1)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-
-      <div class="theme-info">
-        <div class="powered-by"></div>
-        <span class="post-count">共128.7k字</span>
-      </div>
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2017/09/21/Mock/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="莫爵贵(JayMo)">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JayMo个人网站">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/21/Mock/" itemprop="url">Mock.js</a></h1>
-        
-
-        <div class="post-meta">
-
-    
-
-
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T15:22:25+08:00">
-                2017-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/09/21/Mock/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/21/Mock/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/09/21/Mock/" class="leancloud_visitors" data-flag-title="Mock.js">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  1,375字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  5分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Mock.js 是一款<strong>模拟数据生成器</strong>，旨在帮助<strong>前端</strong>攻城师独立于后端进行开发，帮助编写<strong>单元测试</strong>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/21/Mock/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1857,7 +1741,22 @@
 
       
         
-          <p>Mock.js 是一款<strong>模拟数据生成器</strong>，旨在帮助<strong>前端</strong>攻城师独立于后端进行开发，帮助编写<strong>单元测试</strong>
+          Mock.js 是一款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试
+
+Mock.js 是一款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试。提供了以下模拟功能：
+
+ * 根据数据模板生成模拟数据
+ * 模拟 Ajax 请求，生成并返回模拟数据
+ * 基于 HTML 模板生成模拟数据
+
+语法规范
+Mock.js 的语法规范包括两部分：
+
+ * 数据模板定义规范（Data Template Definition，DTD）
+ * 数据占位符定义规范（Data Placeholder Definition，DPD）
+
+数据模板定义规范 DTD
+数据模板
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/21/Mock(1)/#more" rel="contents">
@@ -1911,7 +1810,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2017/09/20/R笔记/">
+    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2017/09/21/Mock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="莫爵贵(JayMo)">
@@ -1930,7 +1829,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/20/R笔记/" itemprop="url">R笔记</a></h1>
+                <a class="post-title-link" href="/2017/09/21/Mock/" itemprop="url">Mock.js</a></h1>
         
 
         <div class="post-meta">
@@ -1946,8 +1845,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T23:54:46+08:00">
-                2017-09-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T15:22:25+08:00">
+                2017-09-21
               </time>
             
 
@@ -1957,28 +1856,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/R/" itemprop="url" rel="index">
-                    <span itemprop="name">R</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -1987,9 +1864,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/20/R笔记/#comments" itemprop="discussionUrl">
+                <a href="/2017/09/21/Mock/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/20/R笔记/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/09/21/Mock/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1997,7 +1874,7 @@
 
           
           
-             <span id="/2017/09/20/R笔记/" class="leancloud_visitors" data-flag-title="R笔记">
+             <span id="/2017/09/21/Mock/" class="leancloud_visitors" data-flag-title="Mock.js">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2022,7 +1899,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  15,165字
+                  1,375字
                 </span>
               
 
@@ -2038,7 +1915,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  56分钟
+                  5分钟
                 </span>
               
             </div>
@@ -2057,10 +1934,25 @@
 
       
         
-          <p>一门可视化语言。<br>
+          Mock.js 是一款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试
+
+Mock.js 是一款模拟数据生成器，旨在帮助前端攻城师独立于后端进行开发，帮助编写单元测试。提供了以下模拟功能：
+
+ * 根据数据模板生成模拟数据
+ * 模拟 Ajax 请求，生成并返回模拟数据
+ * 基于 HTML 模板生成模拟数据
+
+语法规范
+Mock.js 的语法规范包括两部分：
+
+ * 数据模板定义规范（Data Template Definition，DTD）
+ * 数据占位符定义规范（Data Placeholder Definition，DPD）
+
+数据模板定义规范 DTD
+数据模板
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/09/20/R笔记/#more" rel="contents">
+            <a class="btn" href="/2017/09/21/Mock/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2257,10 +2149,223 @@
 
       
         
-          <p>REST是一种设计API的模式<br>
+          REST是一种设计API的模式
+
+什么是Web API呢？
+
+如果我们想要获取某个电商网站的某个商品，输入http://localhost:3000/products/123，就可以看到id为123的商品页面，但这个结果是HTML页面，它同时混合包含了Product的数据和Product的展示两个部分。对于用户来说，阅读起来没有问题，但是，如果机器读取，就很难从HTML中解析出Product的数据。
+
+如果一个URL返回的不是HTML，而是机器能直接解析的数据，这个URL就可以看成是一个Web API。比如，读取http://localhost:3000/api/products/123，如果
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/20/REST(1)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+
+      <div class="theme-info">
+        <div class="powered-by"></div>
+        <span class="post-count">共128.7k字</span>
+      </div>
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2017/09/20/R笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莫爵贵(JayMo)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JayMo个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/20/R笔记/" itemprop="url">R笔记</a></h1>
+        
+
+        <div class="post-meta">
+
+    
+
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T23:54:46+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index">
+                    <span itemprop="name">R</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/20/R笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/20/R笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/20/R笔记/" class="leancloud_visitors" data-flag-title="R笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  15,165字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  56分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          一门可视化语言。
+
+http://bayes.math.montana.edu/Rweb/Rnotes/R.html
+
+前言：关于R
+在R的官方教程里是这么给R下注解的:一个数据分析和图形显示的程序设计环境(A system for data analysis and visualization which is built based on S language.)。
+R的源起
+R是S语言的一种实现。S语言是由 AT&T贝尔实验室开发的一种用来进行数据探索、统计分析、作图的解释型语言。最初S语言的实现版本主要是S-PLUS。S-PLUS是一个商业 软件，它基于S语言，并由MathSoft公司
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/20/R笔记/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
