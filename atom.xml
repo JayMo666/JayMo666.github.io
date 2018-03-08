@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jaymo666.github.io/"/>
-  <updated>2018-03-07T15:28:17.279Z</updated>
+  <updated>2018-03-08T04:12:40.079Z</updated>
   <id>http://jaymo666.github.io/</id>
   
   <author>
@@ -18,10 +18,38 @@
   
   <entry>
     <title>迁移hexo到新电脑</title>
-    <link href="http://jaymo666.github.io/2018/03/07/%E8%BF%81%E7%A7%BBhexo%E5%88%B0%E6%96%B0%E7%94%B5%E8%84%91/"/>
-    <id>http://jaymo666.github.io/2018/03/07/迁移hexo到新电脑/</id>
-    <published>2018-03-07T15:28:17.000Z</published>
-    <updated>2018-03-07T15:28:17.279Z</updated>
+    <link href="http://jaymo666.github.io/2018/03/08/%E8%BF%81%E7%A7%BBhexo%E5%88%B0%E6%96%B0%E7%94%B5%E8%84%91/"/>
+    <id>http://jaymo666.github.io/2018/03/08/迁移hexo到新电脑/</id>
+    <published>2018-03-08T04:09:30.000Z</published>
+    <updated>2018-03-08T04:12:40.079Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、从官网Git下载git，在新电脑上安装，因为https速度慢，而且每次都要输入口令，常用的是使用ssh。使用下面方法创建：&lt;br&gt;（1）打开git bash，在用户主目录下运行：ssh-keygen -t rsa -C “&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://jaymo666.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://jaymo666.github.io/tags/hexo/"/>
+    
+      <category term="github" scheme="http://jaymo666.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>“hexo博客再配置”</title>
+    <link href="http://jaymo666.github.io/2018/03/08/%E2%80%9Chexo%E5%8D%9A%E5%AE%A2%E5%86%8D%E9%85%8D%E7%BD%AE%E2%80%9D/"/>
+    <id>http://jaymo666.github.io/2018/03/08/“hexo博客再配置”/</id>
+    <published>2018-03-08T04:09:30.000Z</published>
+    <updated>2018-03-08T04:09:30.280Z</updated>
     
     <summary type="html">
     
@@ -72,10 +100,10 @@
   
   <entry>
     <title>网络管理员必备</title>
-    <link href="http://jaymo666.github.io/2017/09/26/Network/"/>
-    <id>http://jaymo666.github.io/2017/09/26/Network/</id>
+    <link href="http://jaymo666.github.io/2017/09/26/Network(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/26/Network(1)/</id>
     <published>2017-09-26T06:49:47.000Z</published>
-    <updated>2017-12-03T11:30:29.248Z</updated>
+    <updated>2017-12-03T12:42:18.345Z</updated>
     
     <summary type="html">
     
@@ -106,10 +134,10 @@
   
   <entry>
     <title>网络管理员必备</title>
-    <link href="http://jaymo666.github.io/2017/09/26/Network(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/26/Network(1)/</id>
+    <link href="http://jaymo666.github.io/2017/09/26/Network/"/>
+    <id>http://jaymo666.github.io/2017/09/26/Network/</id>
     <published>2017-09-26T06:49:47.000Z</published>
-    <updated>2017-12-03T12:42:18.345Z</updated>
+    <updated>2017-12-03T11:30:29.248Z</updated>
     
     <summary type="html">
     
@@ -192,10 +220,10 @@
   
   <entry>
     <title>Threejs中的各种光源（Threejs第二章）</title>
-    <link href="http://jaymo666.github.io/2017/09/22/Threejs2/"/>
-    <id>http://jaymo666.github.io/2017/09/22/Threejs2/</id>
+    <link href="http://jaymo666.github.io/2017/09/22/Threejs2(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/22/Threejs2(1)/</id>
     <published>2017-09-22T05:34:47.000Z</published>
-    <updated>2017-12-03T11:29:52.275Z</updated>
+    <updated>2017-12-03T12:41:54.229Z</updated>
     
     <summary type="html">
     
@@ -218,10 +246,10 @@
   
   <entry>
     <title>Threejs中的各种光源（Threejs第二章）</title>
-    <link href="http://jaymo666.github.io/2017/09/22/Threejs2(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/22/Threejs2(1)/</id>
+    <link href="http://jaymo666.github.io/2017/09/22/Threejs2/"/>
+    <id>http://jaymo666.github.io/2017/09/22/Threejs2/</id>
     <published>2017-09-22T05:34:47.000Z</published>
-    <updated>2017-12-03T12:41:54.229Z</updated>
+    <updated>2017-12-03T11:29:52.275Z</updated>
     
     <summary type="html">
     
@@ -270,10 +298,10 @@
   
   <entry>
     <title>Vue进阶之路——深入响应式原理</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理(1)/</id>
+    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理/</id>
     <published>2017-09-21T15:54:46.000Z</published>
-    <updated>2017-12-03T12:41:44.165Z</updated>
+    <updated>2017-12-03T11:29:32.892Z</updated>
     
     <summary type="html">
     
@@ -322,10 +350,10 @@
   
   <entry>
     <title>Vue进阶之路——深入响应式原理</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理/</id>
+    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理(1)/</id>
     <published>2017-09-21T15:54:46.000Z</published>
-    <updated>2017-12-03T11:29:32.892Z</updated>
+    <updated>2017-12-03T12:41:44.165Z</updated>
     
     <summary type="html">
     
@@ -343,34 +371,6 @@
       <category term="Vue" scheme="http://jaymo666.github.io/tags/Vue/"/>
     
       <category term="框架" scheme="http://jaymo666.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Threejs</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Threejs(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Threejs(1)/</id>
-    <published>2017-09-21T15:38:32.000Z</published>
-    <updated>2017-12-03T12:41:56.937Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一门3D技术语言。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="JS" scheme="http://jaymo666.github.io/categories/JS/"/>
-    
-      <category term="3D" scheme="http://jaymo666.github.io/categories/JS/3D/"/>
-    
-    
-      <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
-    
-      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
-    
-      <category term="3D" scheme="http://jaymo666.github.io/tags/3D/"/>
     
   </entry>
   
@@ -394,9 +394,37 @@
     
       <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
     
+      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
+    
       <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
+      <category term="3D" scheme="http://jaymo666.github.io/tags/3D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Threejs</title>
+    <link href="http://jaymo666.github.io/2017/09/21/Threejs(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Threejs(1)/</id>
+    <published>2017-09-21T15:38:32.000Z</published>
+    <updated>2017-12-03T12:41:56.937Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一门3D技术语言。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JS" scheme="http://jaymo666.github.io/categories/JS/"/>
+    
+      <category term="3D" scheme="http://jaymo666.github.io/categories/JS/3D/"/>
+    
+    
+      <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
+    
       <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
+    
+      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="3D" scheme="http://jaymo666.github.io/tags/3D/"/>
     
@@ -454,9 +482,9 @@
       <category term="R" scheme="http://jaymo666.github.io/categories/R/"/>
     
     
-      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
       <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
+    
+      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
       <category term="R" scheme="http://jaymo666.github.io/tags/R/"/>
     
@@ -481,32 +509,6 @@
       <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
     
       <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>J微信时代，博客阅读</title>
-    <link href="http://jaymo666.github.io/2017/09/20/%E5%BE%AE%E4%BF%A1%E6%97%B6%E4%BB%A3%EF%BC%8C%E5%8D%9A%E5%AE%A2%E9%98%85%E8%AF%BB/"/>
-    <id>http://jaymo666.github.io/2017/09/20/微信时代，博客阅读/</id>
-    <published>2017-09-20T15:54:46.000Z</published>
-    <updated>2017-12-03T11:29:10.816Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;博客沒有消失，只是变成了知乎，微博了而已&lt;br&gt;
-    
-    </summary>
-    
-      <category term="感想" scheme="http://jaymo666.github.io/categories/%E6%84%9F%E6%83%B3/"/>
-    
-    
-      <category term="博客" scheme="http://jaymo666.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="感想" scheme="http://jaymo666.github.io/tags/%E6%84%9F%E6%83%B3/"/>
-    
-      <category term="写作" scheme="http://jaymo666.github.io/tags/%E5%86%99%E4%BD%9C/"/>
-    
-      <category term="阅读" scheme="http://jaymo666.github.io/tags/%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
