@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="这是概要！">
+<meta name="description" content="第一个npm包:web-plus">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在npm发布第一个包">
 <meta property="og:url" content="http://jaymo666.github.io/2018/03/14/在npm发布第一个包/index.html">
 <meta property="og:site_name" content="JayMo个人网站">
-<meta property="og:description" content="这是概要！">
+<meta property="og:description" content="第一个npm包:web-plus">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-14T13:16:45.172Z">
+<meta property="og:updated_time" content="2018-03-14T13:28:03.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在npm发布第一个包">
-<meta name="twitter:description" content="这是概要！">
+<meta name="twitter:description" content="第一个npm包:web-plus">
 
 
 
@@ -419,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  918字
+                  910字
                 </span>
               
 
@@ -453,15 +453,15 @@
       
 
       
-        <p>这是概要！<a id="more"></a></p>
+        <p>第一个npm包:web-plus<a id="more"></a></p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=447960871&auto=0&height=66"></iframe>
 
-<h2 id="1-准备工具"><a href="#1-准备工具" class="headerlink" title="1.准备工具"></a>1.准备工具</h2><ul>
+<h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><ul>
 <li>安装node.js</li>
 <li>注册一个github账户用于托管代码</li>
 <li>注册一个npm账户</li>
 <li>开发你的module，更新至github</li>
-<li>发布module至npm<h2 id="2-github创建项目"><a href="#2-github创建项目" class="headerlink" title="2.github创建项目"></a>2.github创建项目</h2></li>
+<li>发布module至npm<h2 id="github创建项目"><a href="#github创建项目" class="headerlink" title="github创建项目"></a>github创建项目</h2></li>
 </ul>
 <p>终端进入到项目文件夹，执行npm init命令，构建模块的描述文件，系统会提示你输入所需的信息，不想输入就直接Enter跳过。这里主要的几个配置如下:</p>
 <ul>
@@ -469,26 +469,28 @@
 <li>version版本信息（每发布一次版本号都必须大于上一次发布的版本号）；</li>
 <li>entry入口文件</li>
 </ul>
-<h2 id="3-开发："><a href="#3-开发：" class="headerlink" title="3.开发："></a>3.开发：</h2><h4 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h4><figure class="highlight plain"><figcaption><span>init```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![npm init](../img/web-plus1.png)</span><br></pre></td></tr></table></figure>
+<h2 id="开发："><a href="#开发：" class="headerlink" title="开发："></a>开发：</h2><figure class="highlight plain"><figcaption><span>init```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![npm init](../img/web-plus1.png)</span><br></pre></td></tr></table></figure>
 <p>$ npm init<br>This utility will walk you through creating a package.json file.<br>It only covers the most common items, and tries to guess sensible defaults.</p>
 <p>See <code>npm help json</code> for definitive documentation on these fields<br>and exactly what they do.</p>
 <p>Use <code>npm install &lt;pkg&gt;</code> afterwards to install a package and<br>save it as a dependency in the package.json file.</p>
 <p>Press ^C at any time to quit.<br>package name: (npm-module) web-plus<br>version: (1.0.0)<br>description: 前端常用代码片段<br>entry point: (index.js)<br>test command:<br>git repository: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:JayMo666/webplus.git<br>keywords: web<br>author: JayMo<br>license: (ISC) MIT<br>About to write to F:\npm\npm-module\package.json:</p>
 <p>{<br>  “name”: “web-plus”,<br>  “version”: “1.0.0”,<br>  “description”: “前端常用代码片段”,<br>  “main”: “index.js”,<br>  “scripts”: {<br>    “test”: “echo \”Error: no test specified\” &amp;&amp; exit 1”<br>  },<br>  “repository”: {<br>    “type”: “git”,<br>    “url”: “git+ssh:<a href="mailto://git@github.com" target="_blank" rel="noopener">//git@github.com</a>/JayMo666/webplus.git”<br>  },<br>  “keywords”: [<br>    “web”<br>  ],<br>  “author”: “JayMo”,<br>  “license”: “MIT”,<br>  “bugs”: {<br>    “url”: “<a href="https://github.com/JayMo666/webplus/issues&quot;" target="_blank" rel="noopener">https://github.com/JayMo666/webplus/issues&quot;</a><br>  },<br>  “homepage”: “<a href="https://github.com/JayMo666/webplus#readme&quot;" target="_blank" rel="noopener">https://github.com/JayMo666/webplus#readme&quot;</a><br>}</p>
-<p>Is this ok? (yes)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">### 3.2npm注册</span><br><span class="line"></span><br><span class="line">### 3.3npm 命令</span><br><span class="line">1.首先增加用户</span><br><span class="line">```npm adduser</span><br></pre></td></tr></table></figure></p>
+<p>Is this ok? (yes)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">### npm注册</span><br><span class="line"></span><br><span class="line">### npm 命令</span><br><span class="line">1.首先增加用户</span><br><span class="line">```npm adduser</span><br></pre></td></tr></table></figure></p>
 <p>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm adduser</span><br><span class="line">Username: jaymo666</span><br><span class="line">Password: *******</span><br><span class="line">Email: (this IS public) 1294****8@qq.com</span><br><span class="line">Logged in as jaymo666 on https://registry.npmjs.org/.</span><br></pre></td></tr></table></figure></p>
-<p>2.查看当前登录用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm whoami</span><br></pre></td></tr></table></figure></p>
+<p>2.查看当前登录用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm whoami</span><br></pre></td></tr></table></figure>
 <p>3.登录命令（这里已经登录，不用执行此命令）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure></p>
-<p>##4.开发包-编程</p>
-<h4 id="4-1目录结构"><a href="#4-1目录结构" class="headerlink" title="4.1目录结构"></a>4.1目录结构</h4><ul>
+<h2 id="开发包-编程"><a href="#开发包-编程" class="headerlink" title="开发包-编程"></a>开发包-编程</h2><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><ul>
 <li>a.js</li>
 <li>index.js （这个是入口文件，要和package.json 文件中的  “main”的值一样）</li>
 <li>package.json (npm init 生成的）</li>
 </ul>
-<p>####4.2开发</p>
-<p>index.js:就开发一个简单地hello程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function hello(name)&#123;</span><br><span class="line">  console.log(&quot;hello &quot;+ name);</span><br><span class="line">&#125;</span><br><span class="line">exports.hello=hello;</span><br></pre></td></tr></table></figure></p>
-<p>b.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var h=require(&apos;./index&apos;);</span><br><span class="line">h.hello(&apos;jaymo&apos;);</span><br></pre></td></tr></table></figure></p>
-<p>##5.发布npm包<br><figure class="highlight plain"><figcaption><span>publish```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">进入npm个人中心，可以看到自己的npm包已经发布在上面了</span><br><span class="line"></span><br><span class="line">##6.获取npm包</span><br><span class="line">```npm install &lt;package-name&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h4><p>index.js:就开发一个简单地hello程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function hello(name)&#123;</span><br><span class="line">  console.log(&quot;hello &quot;+ name);</span><br><span class="line">&#125;</span><br><span class="line">exports.hello=hello;</span><br></pre></td></tr></table></figure>
+<p>b.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var h=require(&apos;./index&apos;);</span><br><span class="line">h.hello(&apos;jaymo&apos;);</span><br></pre></td></tr></table></figure>
+<p>##5.发布npm包</p>
+<figure class="highlight plain"><figcaption><span>publish```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">进入npm个人中心，可以看到自己的npm包已经发布在上面了</span><br><span class="line"></span><br><span class="line">##6.获取npm包</span><br><span class="line"></span><br><span class="line">```npm install &lt;package-name&gt;</span><br></pre></td></tr></table></figure>
 <p>此处package-name使用web-plus即可<br>可以看到，多了一个node_modules目录，里面多了一个web-plus文件夹，里面放的就是我们刚才创建的npm包，包含a.js、index.js、package.json三个文件</p>
 <p>##7.使用npm包<br>跟使用普通的npm包一样，问了测试简单，创建一个index.js，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = require(&apos;web-plus&apos;)</span><br><span class="line">a.hello(&apos;jaymo&apos;)</span><br></pre></td></tr></table></figure></p>
 <p>执行node index即可看见输出了hello jaymo</p>
@@ -558,7 +560,7 @@
 
       <div class="theme-info">
         <div class="powered-by"></div>
-        <span class="post-count">共129.7k字</span>
+        <span class="post-count">共129.6k字</span>
       </div>
     </footer>
   </article>
@@ -733,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备工具"><span class="nav-number">1.</span> <span class="nav-text">1.准备工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-github创建项目"><span class="nav-number">2.</span> <span class="nav-text">2.github创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-开发："><span class="nav-number">3.</span> <span class="nav-text">3.开发：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">3.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1目录结构"><span class="nav-number">3.0.2.</span> <span class="nav-text">4.1目录结构</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工具"><span class="nav-number">1.</span> <span class="nav-text">准备工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github创建项目"><span class="nav-number">2.</span> <span class="nav-text">github创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发："><span class="nav-number">3.</span> <span class="nav-text">开发：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发包-编程"><span class="nav-number">4.</span> <span class="nav-text">开发包-编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目录结构"><span class="nav-number">4.0.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发"><span class="nav-number">4.0.2.</span> <span class="nav-text">开发</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
