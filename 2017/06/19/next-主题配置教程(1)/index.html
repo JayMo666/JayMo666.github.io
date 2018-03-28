@@ -103,14 +103,14 @@
 <meta property="og:site_name" content="JayMo个人网站">
 <meta property="og:description" content="next-主题页面设置。使用了next，next在众多主题中评分最高，使用了几个主题后，发现它确实好用，PS：hexo很方便更换主题，赞">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="c:/Users/可汗金斯/Desktop/menu.PNG">
-<meta property="og:image" content="c:/Users/可汗金斯/Desktop/avatar.PNG">
-<meta property="og:image" content="c:/Users/可汗金斯/Desktop/1.PNG">
+<meta property="og:image" content="http://jaymo666.github.io/2017/06/19/next-主题配置教程(1)/C:/Users/可汗金斯/Desktop/menu.PNG">
+<meta property="og:image" content="http://jaymo666.github.io/2017/06/19/next-主题配置教程(1)/C:/Users/可汗金斯/Desktop/avatar.PNG">
+<meta property="og:image" content="http://jaymo666.github.io/2017/06/19/next-主题配置教程(1)/C:/Users/可汗金斯/Desktop/1.PNG">
 <meta property="og:updated_time" content="2017-12-03T12:42:16.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="next-主题配置教程">
 <meta name="twitter:description" content="next-主题页面设置。使用了next，next在众多主题中评分最高，使用了几个主题后，发现它确实好用，PS：hexo很方便更换主题，赞">
-<meta name="twitter:image" content="c:/Users/可汗金斯/Desktop/menu.PNG">
+<meta name="twitter:image" content="http://jaymo666.github.io/2017/06/19/next-主题配置教程(1)/C:/Users/可汗金斯/Desktop/menu.PNG">
 
 
 
@@ -472,16 +472,16 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">scheme: Pisces</span><br></pre></td></tr></table></figure>
 <h2 id="设置-语言"><a href="#设置-语言" class="headerlink" title="设置 语言"></a>设置 语言</h2><p>编辑<code>_config.yml</code>，配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans</span><br></pre></td></tr></table></figure></p>
 <h2 id="设置-菜单"><a href="#设置-菜单" class="headerlink" title="设置 菜单"></a>设置 菜单</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  #about: /about</span><br><span class="line">  #categories: /categories</span><br><span class="line">  tags: /tags</span><br><span class="line">  #commonweal: /404.html</span><br></pre></td></tr></table></figure>
-<p><img src="C:\Users\可汗金斯\Desktop\menu.PNG" alt="menu"></p>
+<p><img src="/2017/06/19/next-主题配置教程(1)/C:/Users\可汗金斯\Desktop\menu.PNG" alt="menu"></p>
 <h4 id="设置菜单项的显示文本"><a href="#设置菜单项的显示文本" class="headerlink" title="设置菜单项的显示文本"></a>设置菜单项的显示文本</h4><p>在第一步中设置的菜单的名称并不直接用于界面上的展示。Hexo 在生成的时候将使用 这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在 NexT 主题目录下的<code>languages/{language}.yml</code> （{language} 为你所使用的语言）。<br>以简体中文为例，若你需要添加一个菜单项，比如 something。那么就需要修改简体中文对应的翻译文件 <code>languages/zh-Hans.yml</code>，在<code>menu</code> 字段下添加一项：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: 首页</span><br><span class="line">  archives: 归档</span><br><span class="line">  categories: 分类</span><br><span class="line">  tags: 标签</span><br><span class="line">  about: 关于</span><br><span class="line">  search: 搜索</span><br><span class="line">  commonweal: 公益404</span><br><span class="line">  something: 有料</span><br></pre></td></tr></table></figure>
 <h4 id="设定菜单项的图标"><a href="#设定菜单项的图标" class="headerlink" title="设定菜单项的图标"></a>设定菜单项的图标</h4><p>对应的字段是 <code>menu_icons</code>。 此设定格式是<code>item name: icon name</code>，其中 item name 与上一步所配置的菜单名字对应，icon name 是 Font Awesome 图标的 名字。而 enable 可用于控制是否显示图标，你可以设置成 false 来去掉图标。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu_icons:</span><br><span class="line">  enable: true</span><br><span class="line">  # Icon Mapping.</span><br><span class="line">  home: home</span><br><span class="line">  about: user</span><br><span class="line">  categories: th</span><br><span class="line">  tags: tags</span><br><span class="line">  archives: archive</span><br><span class="line">  commonweal: heartbeat</span><br></pre></td></tr></table></figure>
-<h2 id="设置-头像"><a href="#设置-头像" class="headerlink" title="设置 头像"></a>设置 头像</h2><p>放置在了 <code>source/images/</code> 目录下 ,如下：<br><img src="C:\Users\可汗金斯\Desktop\avatar.PNG" alt="头像路径"></p>
+<h2 id="设置-头像"><a href="#设置-头像" class="headerlink" title="设置 头像"></a>设置 头像</h2><p>放置在了 <code>source/images/</code> 目录下 ,如下：<br><img src="/2017/06/19/next-主题配置教程(1)/C:/Users\可汗金斯\Desktop\avatar.PNG" alt="头像路径"></p>
 <h2 id="集成常用的第三方服务"><a href="#集成常用的第三方服务" class="headerlink" title="集成常用的第三方服务"></a>集成常用的第三方服务</h2><h4 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h4><ol>
 <li>登录 百度统计， 定位到站点的代码获取页面</li>
 <li>复制 hm.js? 后面那串统计脚本 id</li>
-<li>编辑 主题配置文件， 修改字段 baidu_analytics 字段，值设置成你的百度统计脚本 id。<br>所以，页面已经设置了百度统计<h5 id="阅读次数统计"><a href="#阅读次数统计" class="headerlink" title="阅读次数统计"></a>阅读次数统计</h5>以按照 <a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="noopener">为NexT主题添加文章阅读量统计功能</a>，注册了<a href="hhttps://leancloud.cn" target="_blank" rel="noopener">https://leancloud.cn</a><br>如图：<br><img src="C:\Users\可汗金斯\Desktop\1.PNG" alt="leancloud"><br>创建了JayMo个人博客应用，创建了名称为<code>Counter</code>的Class,复制AppID以及AppKey并在NexT主题的_config.yml文件中我们相应的位置填入即可，正确配置之后文件内容像这个样子:</li>
+<li>编辑 主题配置文件， 修改字段 baidu_analytics 字段，值设置成你的百度统计脚本 id。<br>所以，页面已经设置了百度统计<h5 id="阅读次数统计"><a href="#阅读次数统计" class="headerlink" title="阅读次数统计"></a>阅读次数统计</h5>以按照 <a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="noopener">为NexT主题添加文章阅读量统计功能</a>，注册了<a href="hhttps://leancloud.cn" target="_blank" rel="noopener">https://leancloud.cn</a><br>如图：<br><img src="/2017/06/19/next-主题配置教程(1)/C:/Users\可汗金斯\Desktop\1.PNG" alt="leancloud"><br>创建了JayMo个人博客应用，创建了名称为<code>Counter</code>的Class,复制AppID以及AppKey并在NexT主题的_config.yml文件中我们相应的位置填入即可，正确配置之后文件内容像这个样子:</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: joaeuuc4hsqudUUwx4gIvGF6-gzGzoHsz</span><br><span class="line">  app_key: E9UJsJpw1omCHuS22PdSpKoh</span><br></pre></td></tr></table></figure>
 <h5 id="Web安全"><a href="#Web安全" class="headerlink" title="Web安全"></a>Web安全</h5><p>以设置只能通过：<a href="https://jaymo666.github.io/">jaymo666.github.io/</a>或<a href="http://jaymo.cf/" target="_blank" rel="noopener">jaymo.cf/</a>来访问,确保数据调用的安全。</p>
@@ -549,7 +549,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/19/博客搭建及使用(1)/" rel="prev" title="博客搭建及使用">
+              <a href="/2017/06/19/博客搭建及使用/" rel="prev" title="博客搭建及使用">
                 博客搭建及使用 <i class="fa fa-chevron-right"></i>
               </a>
             
