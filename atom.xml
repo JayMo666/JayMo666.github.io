@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jaymo666.github.io/"/>
-  <updated>2018-03-14T13:59:26.157Z</updated>
+  <updated>2018-03-28T02:44:45.715Z</updated>
   <id>http://jaymo666.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ajax概念+简单例子复习</title>
+    <link href="http://jaymo666.github.io/2018/03/28/Ajax%E6%A6%82%E5%BF%B5-%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90%E5%A4%8D%E4%B9%A0/"/>
+    <id>http://jaymo666.github.io/2018/03/28/Ajax概念-简单例子复习/</id>
+    <published>2018-03-28T02:37:05.000Z</published>
+    <updated>2018-03-28T02:44:45.715Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Ajax概念+简单例子复习
+    
+    </summary>
+    
+      <category term="Ajax" scheme="http://jaymo666.github.io/categories/Ajax/"/>
+    
+    
+      <category term="Ajax" scheme="http://jaymo666.github.io/tags/Ajax/"/>
+    
+      <category term="json" scheme="http://jaymo666.github.io/tags/json/"/>
+    
+      <category term="jQuery" scheme="http://jaymo666.github.io/tags/jQuery/"/>
+    
+      <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JSON的使用</title>
+    <link href="http://jaymo666.github.io/2018/03/28/JSON%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://jaymo666.github.io/2018/03/28/JSON的使用/</id>
+    <published>2018-03-28T02:35:19.000Z</published>
+    <updated>2018-03-28T02:42:32.562Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Json复习
+    
+    </summary>
+    
+      <category term="json" scheme="http://jaymo666.github.io/categories/json/"/>
+    
+    
+      <category term="json" scheme="http://jaymo666.github.io/tags/json/"/>
+    
+  </entry>
   
   <entry>
     <title>在npm发布第一个包</title>
@@ -236,32 +282,6 @@
   
   <entry>
     <title>Threejs中的各种光源（Threejs第二章）</title>
-    <link href="http://jaymo666.github.io/2017/09/22/Threejs2(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/22/Threejs2(1)/</id>
-    <published>2017-09-22T05:34:47.000Z</published>
-    <updated>2017-12-03T12:41:54.229Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;作为3D技术的发展趋势，浏览器端3D技术越来越被一些技术公司重视。由此，Threejs非常注重3D渲染效果的真实性，对渲染真实性来说，使用光源是比不可少的技巧。Threejs，在光源方面提供了多种光源供选择。
-    
-    </summary>
-    
-      <category term="前端" scheme="http://jaymo666.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
-    
-      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
-    
-      <category term="3D" scheme="http://jaymo666.github.io/tags/3D/"/>
-    
-      <category term="threejs" scheme="http://jaymo666.github.io/tags/threejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Threejs中的各种光源（Threejs第二章）</title>
     <link href="http://jaymo666.github.io/2017/09/22/Threejs2/"/>
     <id>http://jaymo666.github.io/2017/09/22/Threejs2/</id>
     <published>2017-09-22T05:34:47.000Z</published>
@@ -287,15 +307,41 @@
   </entry>
   
   <entry>
-    <title>Vue进阶之路——过渡效果</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E8%BF%87%E6%B8%A1%E6%95%88%E6%9E%9C(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——过渡效果(1)/</id>
-    <published>2017-09-21T15:54:46.000Z</published>
-    <updated>2017-12-03T12:41:46.193Z</updated>
+    <title>Threejs中的各种光源（Threejs第二章）</title>
+    <link href="http://jaymo666.github.io/2017/09/22/Threejs2(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/22/Threejs2(1)/</id>
+    <published>2017-09-22T05:34:47.000Z</published>
+    <updated>2017-12-03T12:41:54.229Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。&lt;/p&gt;
+      &lt;p&gt;作为3D技术的发展趋势，浏览器端3D技术越来越被一些技术公司重视。由此，Threejs非常注重3D渲染效果的真实性，对渲染真实性来说，使用光源是比不可少的技巧。Threejs，在光源方面提供了多种光源供选择。
+    
+    </summary>
+    
+      <category term="前端" scheme="http://jaymo666.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
+    
+      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
+    
+      <category term="3D" scheme="http://jaymo666.github.io/tags/3D/"/>
+    
+      <category term="threejs" scheme="http://jaymo666.github.io/tags/threejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue进阶之路——深入响应式原理</title>
+    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理/</id>
+    <published>2017-09-21T15:54:46.000Z</published>
+    <updated>2017-12-03T11:29:32.892Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue 最显著的特性之一便是不太引人注意的响应式系统&lt;br&gt;
     
     </summary>
     
@@ -313,15 +359,15 @@
   </entry>
   
   <entry>
-    <title>Vue进阶之路——深入响应式原理</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理/</id>
+    <title>Vue进阶之路——过渡效果</title>
+    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E8%BF%87%E6%B8%A1%E6%95%88%E6%9E%9C(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——过渡效果(1)/</id>
     <published>2017-09-21T15:54:46.000Z</published>
-    <updated>2017-12-03T11:29:32.892Z</updated>
+    <updated>2017-12-03T12:41:46.193Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Vue 最显著的特性之一便是不太引人注意的响应式系统&lt;br&gt;
+      &lt;p&gt;Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。&lt;/p&gt;
     
     </summary>
     
@@ -392,10 +438,10 @@
   
   <entry>
     <title>Threejs</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Threejs/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Threejs/</id>
+    <link href="http://jaymo666.github.io/2017/09/21/Threejs(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Threejs(1)/</id>
     <published>2017-09-21T15:38:32.000Z</published>
-    <updated>2017-12-03T11:29:54.568Z</updated>
+    <updated>2017-12-03T12:41:56.937Z</updated>
     
     <summary type="html">
     
@@ -420,10 +466,10 @@
   
   <entry>
     <title>Threejs</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Threejs(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Threejs(1)/</id>
+    <link href="http://jaymo666.github.io/2017/09/21/Threejs/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Threejs/</id>
     <published>2017-09-21T15:38:32.000Z</published>
-    <updated>2017-12-03T12:41:56.937Z</updated>
+    <updated>2017-12-03T11:29:54.568Z</updated>
     
     <summary type="html">
     
@@ -461,48 +507,6 @@
     
     
       <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mock.js</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Mock(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Mock(1)/</id>
-    <published>2017-09-21T07:22:25.000Z</published>
-    <updated>2017-12-03T12:42:19.219Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Mock.js 是一款&lt;strong&gt;模拟数据生成器&lt;/strong&gt;，旨在帮助&lt;strong&gt;前端&lt;/strong&gt;攻城师独立于后端进行开发，帮助编写&lt;strong&gt;单元测试&lt;/strong&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R笔记</title>
-    <link href="http://jaymo666.github.io/2017/09/20/R%E7%AC%94%E8%AE%B0/"/>
-    <id>http://jaymo666.github.io/2017/09/20/R笔记/</id>
-    <published>2017-09-20T15:54:46.000Z</published>
-    <updated>2017-12-03T11:30:05.935Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一门可视化语言。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="R" scheme="http://jaymo666.github.io/categories/R/"/>
-    
-    
-      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
-    
-      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-      <category term="R" scheme="http://jaymo666.github.io/tags/R/"/>
     
   </entry>
   
