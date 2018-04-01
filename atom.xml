@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jaymo666.github.io/"/>
-  <updated>2018-03-28T13:05:37.003Z</updated>
+  <updated>2018-04-01T13:09:27.535Z</updated>
   <id>http://jaymo666.github.io/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用mock实现前端所需数据</title>
+    <link href="http://jaymo666.github.io/2018/04/01/%E7%94%A8mock%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%89%80%E9%9C%80%E6%95%B0%E6%8D%AE/"/>
+    <id>http://jaymo666.github.io/2018/04/01/用mock实现前端所需数据/</id>
+    <published>2018-04-01T12:36:39.000Z</published>
+    <updated>2018-04-01T13:09:27.535Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;mock.js的小demo及mock语法简述及JSON.stringify用法&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Ajax概念-简单例子复习/Ajax概念+简单例子复习</title>
@@ -79,28 +95,6 @@
   </entry>
   
   <entry>
-    <title>迁移hexo到新电脑</title>
-    <link href="http://jaymo666.github.io/2018/03/08/%E8%BF%81%E7%A7%BBhexo%E5%88%B0%E6%96%B0%E7%94%B5%E8%84%91/"/>
-    <id>http://jaymo666.github.io/2018/03/08/迁移hexo到新电脑/</id>
-    <published>2018-03-08T04:09:30.000Z</published>
-    <updated>2018-03-08T04:39:53.924Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在更换新电脑的情况下恢复博客，保留了源码…&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://jaymo666.github.io/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://jaymo666.github.io/tags/hexo/"/>
-    
-      <category term="github" scheme="http://jaymo666.github.io/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
     <title>hexo博客再配置</title>
     <link href="http://jaymo666.github.io/2018/03/08/%E2%80%9Chexo%E5%8D%9A%E5%AE%A2%E5%86%8D%E9%85%8D%E7%BD%AE%E2%80%9D/"/>
     <id>http://jaymo666.github.io/2018/03/08/“hexo博客再配置”/</id>
@@ -119,6 +113,28 @@
       <category term="博客" scheme="http://jaymo666.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="hexo" scheme="http://jaymo666.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>迁移hexo到新电脑</title>
+    <link href="http://jaymo666.github.io/2018/03/08/%E8%BF%81%E7%A7%BBhexo%E5%88%B0%E6%96%B0%E7%94%B5%E8%84%91/"/>
+    <id>http://jaymo666.github.io/2018/03/08/迁移hexo到新电脑/</id>
+    <published>2018-03-08T04:09:30.000Z</published>
+    <updated>2018-03-08T04:39:53.924Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在更换新电脑的情况下恢复博客，保留了源码…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://jaymo666.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://jaymo666.github.io/tags/hexo/"/>
+    
+      <category term="github" scheme="http://jaymo666.github.io/tags/github/"/>
     
   </entry>
   
@@ -162,10 +178,10 @@
   
   <entry>
     <title>网络管理员必备</title>
-    <link href="http://jaymo666.github.io/2017/09/26/Network(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/26/Network(1)/</id>
+    <link href="http://jaymo666.github.io/2017/09/26/Network/"/>
+    <id>http://jaymo666.github.io/2017/09/26/Network/</id>
     <published>2017-09-26T06:49:47.000Z</published>
-    <updated>2017-12-03T12:42:18.345Z</updated>
+    <updated>2017-12-03T11:30:29.248Z</updated>
     
     <summary type="html">
     
@@ -196,10 +212,10 @@
   
   <entry>
     <title>网络管理员必备</title>
-    <link href="http://jaymo666.github.io/2017/09/26/Network/"/>
-    <id>http://jaymo666.github.io/2017/09/26/Network/</id>
+    <link href="http://jaymo666.github.io/2017/09/26/Network(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/26/Network(1)/</id>
     <published>2017-09-26T06:49:47.000Z</published>
-    <updated>2017-12-03T11:30:29.248Z</updated>
+    <updated>2017-12-03T12:42:18.345Z</updated>
     
     <summary type="html">
     
@@ -334,10 +350,10 @@
   
   <entry>
     <title>Vue进阶之路——深入响应式原理</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理/</id>
+    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理(1)/</id>
     <published>2017-09-21T15:54:46.000Z</published>
-    <updated>2017-12-03T11:29:32.892Z</updated>
+    <updated>2017-12-03T12:41:44.165Z</updated>
     
     <summary type="html">
     
@@ -360,10 +376,10 @@
   
   <entry>
     <title>Vue进阶之路——深入响应式原理</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理(1)/</id>
+    <link href="http://jaymo666.github.io/2017/09/21/Vue%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF%E2%80%94%E2%80%94%E6%B7%B1%E5%85%A5%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Vue进阶之路——深入响应式原理/</id>
     <published>2017-09-21T15:54:46.000Z</published>
-    <updated>2017-12-03T12:41:44.165Z</updated>
+    <updated>2017-12-03T11:29:32.892Z</updated>
     
     <summary type="html">
     
@@ -438,34 +454,6 @@
   
   <entry>
     <title>Threejs</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Threejs(1)/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Threejs(1)/</id>
-    <published>2017-09-21T15:38:32.000Z</published>
-    <updated>2017-12-03T12:41:56.937Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一门3D技术语言。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="JS" scheme="http://jaymo666.github.io/categories/JS/"/>
-    
-      <category term="3D" scheme="http://jaymo666.github.io/categories/JS/3D/"/>
-    
-    
-      <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
-    
-      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
-    
-      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-      <category term="3D" scheme="http://jaymo666.github.io/tags/3D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Threejs</title>
     <link href="http://jaymo666.github.io/2017/09/21/Threejs/"/>
     <id>http://jaymo666.github.io/2017/09/21/Threejs/</id>
     <published>2017-09-21T15:38:32.000Z</published>
@@ -493,20 +481,30 @@
   </entry>
   
   <entry>
-    <title>Mock.js</title>
-    <link href="http://jaymo666.github.io/2017/09/21/Mock/"/>
-    <id>http://jaymo666.github.io/2017/09/21/Mock/</id>
-    <published>2017-09-21T07:22:25.000Z</published>
-    <updated>2017-12-03T11:30:31.374Z</updated>
+    <title>Threejs</title>
+    <link href="http://jaymo666.github.io/2017/09/21/Threejs(1)/"/>
+    <id>http://jaymo666.github.io/2017/09/21/Threejs(1)/</id>
+    <published>2017-09-21T15:38:32.000Z</published>
+    <updated>2017-12-03T12:41:56.937Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Mock.js 是一款&lt;strong&gt;模拟数据生成器&lt;/strong&gt;，旨在帮助&lt;strong&gt;前端&lt;/strong&gt;攻城师独立于后端进行开发，帮助编写&lt;strong&gt;单元测试&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;一门3D技术语言。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
+      <category term="JS" scheme="http://jaymo666.github.io/categories/JS/"/>
+    
+      <category term="3D" scheme="http://jaymo666.github.io/categories/JS/3D/"/>
+    
     
       <category term="js" scheme="http://jaymo666.github.io/tags/js/"/>
+    
+      <category term="初级" scheme="http://jaymo666.github.io/tags/%E5%88%9D%E7%BA%A7/"/>
+    
+      <category term="可视化" scheme="http://jaymo666.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+      <category term="3D" scheme="http://jaymo666.github.io/tags/3D/"/>
     
   </entry>
   
