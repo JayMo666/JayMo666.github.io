@@ -1,0 +1,1815 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php,设计模式,实例," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JayMo个人网站" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="16 个 PHP 设计模式详解(1)概念 在软件工程中，设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。  分类设计模式主要分为三大类，各自还有许多子类  创建型模式 结构型模式 行为型模式  1.创建型模式模式名|描述—|—抽象工厂模式| 为一个产品族提供了统一">
+<meta name="keywords" content="php,设计模式,实例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式详解">
+<meta property="og:url" content="http://jaymo666.github.io/2018/04/16/设计模式详解/index.html">
+<meta property="og:site_name" content="JayMo个人网站">
+<meta property="og:description" content="16 个 PHP 设计模式详解(1)概念 在软件工程中，设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。  分类设计模式主要分为三大类，各自还有许多子类  创建型模式 结构型模式 行为型模式  1.创建型模式模式名|描述—|—抽象工厂模式| 为一个产品族提供了统一的创建接口。当需要这个产品族的某一系列的时候，可以从抽象工厂中选出相应的系列创建">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_class_struct.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_generalization.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_generalize.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_realize.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_composition.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_association.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_dependency.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/SimpleFactory.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/FactoryMethod.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/AbatractFactory.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Builder.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Singleton.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Adapter.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Bridge.jpg">
+<meta property="og:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Decorator.jpg">
+<meta property="og:updated_time" content="2018-04-16T04:21:57.768Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式详解">
+<meta name="twitter:description" content="16 个 PHP 设计模式详解(1)概念 在软件工程中，设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。  分类设计模式主要分为三大类，各自还有许多子类  创建型模式 结构型模式 行为型模式  1.创建型模式模式名|描述—|—抽象工厂模式| 为一个产品族提供了统一的创建接口。当需要这个产品族的某一系列的时候，可以从抽象工厂中选出相应的系列创建">
+<meta name="twitter:image" content="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_class_struct.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jaymo666.github.io/2018/04/16/设计模式详解/"/>
+
+
+
+
+
+  <title>设计模式详解 | JayMo个人网站</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6a6c220a2d326597cdbfe3ee99d62b3a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JayMo个人网站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">打造属于自己的超能力</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jaymo666.github.io/2018/04/16/设计模式详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="莫爵贵(JayMo)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JayMo个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">设计模式详解</h1>
+        
+
+        <div class="post-meta">
+
+    
+
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T12:19:07+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/16/设计模式详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/16/设计模式详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/16/设计模式详解/" class="leancloud_visitors" data-flag-title="设计模式详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  11,915字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  47分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="16-个-PHP-设计模式详解-1"><a href="#16-个-PHP-设计模式详解-1" class="headerlink" title="16 个 PHP 设计模式详解(1)"></a>16 个 PHP 设计模式详解(1)</h2><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>在软件工程中，设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。</p>
+</blockquote>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>设计模式主要分为三大类，各自还有许多子类</p>
+<ul>
+<li>创建型模式</li>
+<li>结构型模式</li>
+<li>行为型模式</li>
+</ul>
+<p>1.创建型模式<br>模式名|描述<br>—|—<br>抽象工厂模式| 为一个产品族提供了统一的创建接口。当需要这个产品族的某一系列的时候，可以从抽象工厂中选出相应的系列创建一个具体的工厂类<br>工厂方法模式| 定义一个接口用于创建对象，但是让子类决定初始化哪个类。工厂方法把一个类的初始化下放到子类。<br>生成器模式|将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。<br>惰性初始模式| 推迟对象的创建、数据的计算等需要耗费较多资源的操作，只有在第一次访问的时候才执行。<br>对象池模式|  通过回收利用对象避免获取和释放资源所需的昂贵成本。<br>原型模式|   用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。<br>单例模式    |确保一个类只有一个实例，并提供对该实例的全局访问</p>
+<p>2.结构性模式</p>
+<table>
+<thead>
+<tr>
+<th>模式名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>适配器模式</td>
+<td>将某个类的接口转换成客户端期望的另一个接口表示。适配器模式可以消除由于接口不匹配所造成的类兼容性问题。</td>
+</tr>
+<tr>
+<td>桥接模式</td>
+<td>将一个抽象与实现解耦，以便两者可以独立的变化。</td>
+</tr>
+<tr>
+<td>组合模式</td>
+<td>把多个对象组成树状结构来表示局部与整体，这样用户可以一样的对待单个对象和对象的组合。</td>
+</tr>
+<tr>
+<td>修饰模式</td>
+<td>向某个对象动态地添加更多的功能。修饰模式是除类继承外另一种扩展功能的方法。</td>
+</tr>
+<tr>
+<td>外观模式</td>
+<td>为子系统中的一组接口提供一个一致的界面， 外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</td>
+</tr>
+<tr>
+<td>享元</td>
+<td>通过共享以便有效的支持大量小颗粒对象。</td>
+</tr>
+<tr>
+<td>代理</td>
+<td>为其他对象提供一个代理以控制对这个对象的访问。</td>
+</tr>
+</tbody>
+</table>
+<p>3.行为型模式</p>
+<table>
+<thead>
+<tr>
+<th>模式名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>黑板</td>
+<td>广义的观察者在系统范围内交流信息，允许多位读者和写者。</td>
+</tr>
+<tr>
+<td>责任链</td>
+<td>为解除请求的发送者和接收者之间耦合，而使多个对象都有机会处理这个请求。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它。</td>
+</tr>
+<tr>
+<td>命令</td>
+<td>将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可取消的操作。</td>
+</tr>
+<tr>
+<td>解释器</td>
+<td>给定一个语言, 定义它的文法的一种表示，并定义一个解释器, 该解释器使用该表示来解释语言中的句子。</td>
+</tr>
+<tr>
+<td>迭代器</td>
+<td>提供一种方法顺序访问一个聚合对象中各个元素, 而又不需暴露该对象的内部表示。</td>
+</tr>
+<tr>
+<td>中介者</td>
+<td>包装了一系列对象相互作用的方式，使得这些对象不必相互明显作用，从而使它们可以松散偶合。当某些对象之间的作用发生改变时，不会立即影响其他的一些对象之间的作用，保证这些作用可以彼此独立的变化。</td>
+</tr>
+<tr>
+<td>备忘录</td>
+<td>备忘录对象是一个用来存储另外一个对象内部状态的快照的对象。备忘录模式的用意是在不破坏封装的条件下，将一个对象的状态捉住，并外部化，存储起来，从而可以在将来合适的时候把这个对象还原到存储起来的状态。</td>
+</tr>
+<tr>
+<td>空对象</td>
+<td>通过提供默认对象来避免空引用。</td>
+</tr>
+<tr>
+<td>观察者模式</td>
+<td>在对象间定义一个一对多的联系性，由此当一个对象改变了状态，所有其他相关的对象会被通知并且自动刷新。</td>
+</tr>
+<tr>
+<td>规格</td>
+<td>以布尔形式表示的可重绑定的商业逻辑。</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>让一个对象在其内部状态改变的时候，其行为也随之改变。状态模式需要对每一个系统可能获取的状态创立一个状态类的子类。当系统的状态变化时，系统便改变所选的子类。</td>
+</tr>
+<tr>
+<td>策略</td>
+<td>定义一个算法的系列，将其各个分装，并且使他们有交互性。策略模式使得算法在用户使用的时候能独立的改变。</td>
+</tr>
+<tr>
+<td>模板方法</td>
+<td>模板方法模式准备一个抽象类，将部分逻辑以具体方法及具体构造子类的形式实现，然后声明一些抽象方法来迫使子类实现剩余的逻辑。不同的子类可以以不同的方式实现这些抽象方法，从而对剩余的逻辑有不同的实现。先构建一个顶级逻辑框架，而将逻辑的细节留给具体的子类去实现。</td>
+</tr>
+<tr>
+<td>访问者</td>
+<td>封装一些施加于某种数据结构元素之上的操作。一旦这些操作需要修改，接受这个操作的数据结构可以保持不变。访问者模式适用于数据结构相对未定的系统，它把数据结构和作用于结构上的操作之间的耦合解脱开，使得操作集合可以相对自由的演化。</td>
+</tr>
+</tbody>
+</table>
+<p>从三类设计模式挑选16个常用的设计模式来讲解.</p>
+<p>在说模式之前先讲一下UML类图和时序图</p>
+<h2 id="UML类图和时序图"><a href="#UML类图和时序图" class="headerlink" title="UML类图和时序图"></a>UML类图和时序图</h2><p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_class_struct.jpg" alt=""></p>
+<blockquote>
+<ul>
+<li>车的类图结构为&lt;&gt;，表示车是一个抽象类；</li>
+<li>它有两个继承类：小汽车和自行车；它们之间的关系为实现关系，使用带空心箭头的虚线表示；</li>
+<li>小汽车为与SUV之间也是继承关系，它们之间的关系为泛化关系，使用带空心箭头的实线表示；</li>
+<li>小汽车与发动机之间是组合关系，使用带实心菱形的实线表示；</li>
+<li>学生与班级之间是聚合关系，使用带空心菱形的实线表示；</li>
+<li>学生与身份证之间为关联关系，使用一根实线表示；</li>
+<li>学生上学需要用到自行车，与自行车是一种依赖关系，使用带箭头的虚线表示；</li>
+</ul>
+</blockquote>
+<p>类的关系：</p>
+<ul>
+<li>泛化Generalization</li>
+<li>实现Realization</li>
+<li>依赖Dependency</li>
+<li>关联Association</li>
+</ul>
+<p>关联关系又分为：</p>
+<ul>
+<li>一般关联关系</li>
+<li>聚合关系Aggregation</li>
+<li>合成关系Composition</li>
+</ul>
+<p>类的继承包括：泛化和实现</p>
+<h3 id="泛化关系"><a href="#泛化关系" class="headerlink" title="泛化关系"></a>泛化关系</h3><p>泛化关系用一条带空心箭头的直接表示；如下图表示（A继承自B）<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_generalization.jpg" alt=""><br>例：汽车在现实中有实现，可用汽车定义具体的对象；汽车与SUV之间为泛化关系；<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_generalize.jpg" alt=""><br>注：最终代码中，泛化关系表现为继承非抽象类；</p>
+<h3 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h3><p>实现关系用一条带空心箭头的虚线表示；<br>eg：”车”为一个抽象概念，在现实中并无法直接用来定义对象；只有指明具体的子类(汽车还是自行车)，才 可以用来定义对象。<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_realize.jpg" alt=""><br>注：最终代码中，实现关系表现为继承抽象类；</p>
+<h3 id="聚合关系"><a href="#聚合关系" class="headerlink" title="聚合关系"></a>聚合关系</h3><p>聚合关系用一条带空心菱形箭头的直线表示，如下图表示A聚合到B上，或者说B由A组成；<br>！<a href="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_aggregation.jpg" target="_blank" rel="noopener"></a><br>聚合关系用于表示<strong>实体对象之间</strong>的关系，表示整体由部分构成的语义；例如一个部门由多个员工组成；</p>
+<p>与组合关系不同的是，整体和部分不是强依赖的，即使整体不存在了，部分仍然存在；例如， 部门撤销了，人员不会消失，他们依然存在；</p>
+<h3 id="组合关系"><a href="#组合关系" class="headerlink" title="组合关系"></a>组合关系</h3><p>组合关系用一条带实心菱形箭头直线表示，如下图表示A组成B，或者B由A组成；<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_composition.jpg" alt=""><br>与聚合关系一样，组合关系同样表示整体由部分构成的语义；比如公司由多个部门组成；</p>
+<p>但组合关系是一种强依赖的特殊聚合关系，如果整体不存在了，则部分也不存在了；例如， 公司不存在了，部门也将不存在了；</p>
+<h3 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h3><p>关联关系是用一条直线表示的；它描述不同类的对象之间的结构关系；它是一种静态关系， 通常与运行状态无关，一般由常识等因素决定的；它一般用来定义对象之间静态的、天然的结构； 所以，关联关系是一种“强关联”的关系；</p>
+<p>比如，乘车人和车票之间就是一种关联关系；学生和学校就是一种关联关系；</p>
+<p>关联关系默认不强调方向，表示对象间相互知道；如果特别强调方向，如下图，表示A知道B，但 B不知道A；<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_association.jpg" alt="Alt text"><br>注：在最终代码中，关联对象通常是以成员变量的形式实现的；</p>
+<h3 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h3><p>依赖关系是用一套带箭头的虚线表示的；如下图表示A依赖于B；他描述一个对象在运行期间会用到另一个对象的关系；<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_dependency.jpg" alt=""><br>与关联关系不同的是，它是一种临时性的关系，通常在运行期间产生，并且随着运行时的变化； 依赖关系也可能发生变化；</p>
+<p>显然，依赖也有方向，双向依赖是一种非常糟糕的结构，我们总是应该保持单向依赖，杜绝双向依赖的产生；</p>
+<p>注：在最终代码中，依赖关系体现为类构造方法及类方法的传入参数，箭头的指向为调用关系；依赖关系除了临时知道对方外，还是“使用”对方的方法和属性；</p>
+<h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h2><blockquote>
+<p>时序图（Sequence DIagram）是显示对象之间交互的图，这些对象是按时间顺序排列的。时序图中显示的是参与交互的对象及其对象之间消息交互的顺序。<br>时序图包括的建模元素主要有：</p>
+<ul>
+<li>对象（Actor）</li>
+<li>生命线（Lifeline）</li>
+<li>控制焦点（Focus of control）</li>
+<li>消息（Message）<br>等等</li>
+</ul>
+</blockquote>
+<p>关于时序图，以下这篇文章将概念介绍的比较详细；更多实例应用，参见后续章节模式中的时序图；</p>
+<p><a href="http://smartlife.blog.51cto.com/1146871/284874" target="_blank" rel="noopener">http://smartlife.blog.51cto.com/1146871/284874</a></p>
+<h2 id="设计模式详解"><a href="#设计模式详解" class="headerlink" title="设计模式详解"></a>设计模式详解</h2><h3 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h3><blockquote>
+<p>创建型模式(Creational Pattern)对类的实例化过程进行了抽象，能够将软件模块中对象的创建和对象的使用分离。为了使软件的结构更加清晰，外界对于这些对象只需要知道它们共同的接口，而不清楚其具体的实现细节，使整个系统的设计更加符合单一职责原则。<br>工厂模式 分为三类</p>
+<ul>
+<li>简单工厂模式</li>
+<li>工厂方法模式</li>
+<li>抽象工厂模式</li>
+</ul>
+</blockquote>
+<h4 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h4><blockquote>
+<p>简单工厂模式(Simple Factory Pattern)：又称为静态工厂方法(Static Factory Method)模式，它属于类创建型模式。在简单工厂模式中，<strong>可以根据参数的不同返回不同类的实例</strong>。简单工厂模式专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。</p>
+</blockquote>
+<h5 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h5><p>角色：</p>
+<ul>
+<li>Factory：<code>工厂角色</code>：工厂角色负责实现创建所有实例的内部逻辑</li>
+<li>Product： <code>抽象产品角色</code>:抽象产品角色是所创建的所有对象的父类，负责描述所有实例所共有的公共接口</li>
+<li>ConcreteProduct:<code>具体产品角色</code>:具体产品角色是创建目标，所有创建的对象都充当这个角色的某个具体类的实例。实现Product父类的接口功能，也可添加自定义的功能</li>
+</ul>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/SimpleFactory.jpg" alt=""><br>代码实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">//简单工厂模式</span><br><span class="line">class Cat</span><br><span class="line">&#123;</span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;I am Cat class &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Dog</span><br><span class="line">&#123;</span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;I am Dog class &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Factory</span><br><span class="line">&#123;</span><br><span class="line">    public static function CreateAnimal($name)&#123;</span><br><span class="line">        if ($name == &apos;cat&apos;) &#123;</span><br><span class="line">            return new Cat();</span><br><span class="line">        &#125; elseif ($name == &apos;dog&apos;) &#123;</span><br><span class="line">            return new Dog();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$cat = Factory::CreateAnimal(&apos;cat&apos;);</span><br><span class="line">$dog = Factory::CreateAnimal(&apos;dog&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>Factory是工厂角色，里面有CreateAnimal这个抽象产品角色（其实可以有多个抽象产品角色）。</p>
+<h5 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h5><p>简单工厂模式最大的优点在于实现对象的创建和对象的使用分离，将对象的创建交给专门的工厂类负责，但是其最大的缺点在于工厂类不够灵活，增加新的具体产品需要修改工厂类的判断逻辑代码，而且产品较多时，工厂方法代码将会非常复杂。<br>简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。</p>
+<h4 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h4><blockquote>
+<p>此模式中，通过定义一个抽象的核心工厂类，并定义创建产品对象的接口，创建具体产品实例的工作延迟到其工厂子类去完成。这样做的好处是核心类只关注工厂类的接口定义，而具体的产品实例交给具体的工厂子类去创建。当系统需要新增一个产品，无需修改现有系统代码，只需要添加一个具体产品类和其对应的工厂子类，是系统的扩展性变得很好，符合面向对象编程的开闭原则</p>
+</blockquote>
+<h5 id="模式结构-1"><a href="#模式结构-1" class="headerlink" title="模式结构"></a>模式结构</h5><p>角色：</p>
+<ul>
+<li>Product：抽象产品：</li>
+<li>ConcreteProduct：具体产品</li>
+<li>Factory：抽象工厂</li>
+<li>ConcreteFactory：具体工厂<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/FactoryMethod.jpg" alt=""><br>代码实例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">//抽象产品</span><br><span class="line">interface Animal&#123;</span><br><span class="line">    public function run();</span><br><span class="line">    public function say();</span><br><span class="line">&#125;</span><br><span class="line">//具体产品</span><br><span class="line">class Cat implements Animal</span><br><span class="line">&#123;</span><br><span class="line">    public function run()&#123;</span><br><span class="line">        echo &quot;I ran slowly &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public function say()&#123;</span><br><span class="line">        echo &quot;I am Cat class &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//具体产品</span><br><span class="line">class Dog implements Animal</span><br><span class="line">&#123;</span><br><span class="line">    public function run()&#123;</span><br><span class="line">        echo &quot;I&apos;m running fast &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public function say()&#123;</span><br><span class="line">        echo &quot;I am Dog class &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 抽象工厂</span><br><span class="line">abstract class Factory&#123;</span><br><span class="line">    abstract static function createAnimal();</span><br><span class="line">&#125;</span><br><span class="line">//具体工厂</span><br><span class="line">class CatFactory extends Factory</span><br><span class="line">&#123;</span><br><span class="line">    public static function createAnimal()</span><br><span class="line">    &#123;</span><br><span class="line">        return new Cat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//具体工厂</span><br><span class="line">class DogFactory extends Factory</span><br><span class="line">&#123;</span><br><span class="line">    public static function createAnimal()</span><br><span class="line">    &#123;</span><br><span class="line">        return new Dog();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$cat = CatFactory::createAnimal();</span><br><span class="line">$cat-&gt;say();</span><br><span class="line">$cat-&gt;run();</span><br><span class="line"></span><br><span class="line">$dog = DogFactory::createAnimal();</span><br><span class="line">$dog-&gt;say();</span><br><span class="line">$dog-&gt;run();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h5><p>工厂方法模式是简单工厂模式的进一步抽象和推广。由于使用了面向对象的多态性，工厂方法模式保持了简单工厂模式的优点，而且克服了它的缺点。在工厂方法模式中，核心的工厂类不再负责所有产品的创建，而是将具体创建工作交给子类去做。这个核心类仅仅负责给出具体工厂必须实现的接口，而不负责产品类被实例化这种细节，这使得工厂方法模式可以允许系统在不修改工厂角色的情况下引进新产品。</p>
+<h4 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h4><blockquote>
+<p>提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类。抽象工厂模式又称为Kit模式，属于对象创建型模式。</p>
+</blockquote>
+<p>此模式是对工厂方法模式的进一步扩展。在工厂方法模式中，一个具体的工厂负责生产一类具体的产品，即一对一的关系，但是，如果需要一个具体的工厂生产多种产品对象，那么就需要用到抽象工厂模式了。</p>
+<p>为了更清晰地理解工厂方法模式，需要先引入两个概念：</p>
+<ul>
+<li>产品等级结构 ：产品等级结构即产品的继承结构，如一个抽象类是电视机，其子类有海尔电视机、海信电视机、TCL电视机，则抽象电视机与具体品牌的电视机之间构成了一个产品等级结构，抽象电视机是父类，而具体品牌的电视机是其子类。</li>
+<li>产品族 ：在抽象工厂模式中，产品族是指由同一个工厂生产的，位于不同产品等级结构中的一组产品，如海尔电器工厂生产的海尔电视机、海尔电冰箱，海尔电视机位于电视机产品等级结构中，海尔电冰箱位于电冰箱产品等级结构中。</li>
+</ul>
+<h5 id="模式结构-2"><a href="#模式结构-2" class="headerlink" title="模式结构"></a>模式结构</h5><p>角色：</p>
+<ul>
+<li><p>抽象工厂（AbstractFactory）：担任这个角色的是抽象工厂模式的核心，是与应用系统的商业逻辑无关的。</p>
+</li>
+<li><p>具体工厂（Factory）：这个角色直接在客户端的调用下创建产品的实例，这个角色含有选择合适的产品对象的逻辑，而这个逻辑是与应用系统商业逻辑紧密相关的。</p>
+</li>
+<li><p>抽象产品（AbstractProduct）：担任这个角色的类是抽象工厂模式所创建的对象的父类，或它们共同拥有的接口</p>
+</li>
+<li><p>具体产品（Product）：抽象工厂模式所创建的任何产品对象都是一个具体的产品类的实例。<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/AbatractFactory.jpg" alt=""><br>代码实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">// 抽象产品，定义产品有哪些功能</span><br><span class="line">interface TV&#123;</span><br><span class="line">    public function open();</span><br><span class="line">    public function watch();</span><br><span class="line">&#125;</span><br><span class="line">// 抽象产品，定义产品有哪些功能</span><br><span class="line">class HaierTv implements TV</span><br><span class="line">&#123;</span><br><span class="line">    public function open()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Open Haier TV &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function watch()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;I&apos;m watching TV &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 抽象产品，定义产品有哪些功能</span><br><span class="line">interface PC&#123;</span><br><span class="line">    public function work();</span><br><span class="line">    public function play();</span><br><span class="line">&#125;</span><br><span class="line">// 具体产品，实现抽象产品定义的功能</span><br><span class="line">class LenovoPc implements PC</span><br><span class="line">&#123;</span><br><span class="line">    public function work()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;I&apos;m working on a Lenovo computer &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public function play()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Lenovo computers can be used to play games &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 抽象工厂，定义创建哪些抽象产品</span><br><span class="line">abstract class Factory&#123;</span><br><span class="line">    abstract public static function createPc();</span><br><span class="line">    abstract public static function createTv();</span><br><span class="line">&#125;</span><br><span class="line">// 具体工厂，实例化抽象产品</span><br><span class="line">class ProductFactory extends Factory</span><br><span class="line">&#123;</span><br><span class="line">    public static function createTV()</span><br><span class="line">    &#123;</span><br><span class="line">        return new HaierTv();</span><br><span class="line">    &#125;</span><br><span class="line">    public static function createPc()</span><br><span class="line">    &#123;</span><br><span class="line">        return new LenovoPc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$newTv = ProductFactory::createTV();</span><br><span class="line">$newTv-&gt;open();</span><br><span class="line">$newTv-&gt;watch();</span><br><span class="line"></span><br><span class="line">$newPc = ProductFactory::createPc();</span><br><span class="line">$newPc-&gt;work();</span><br><span class="line">$newPc-&gt;play();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h4><blockquote>
+<p>又名：生成器模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。</p>
+</blockquote>
+<p>建造者模式是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。例如，一辆汽车由轮子，发动机以及其他零件组成，对于普通人而言，我们使用的只是一辆完整的车，这时，我们需要加入一个构造者，让他帮我们把这些组件按序组装成为一辆完整的车。</p>
+<h5 id="模式结构-3"><a href="#模式结构-3" class="headerlink" title="模式结构"></a>模式结构</h5><p>角色：</p>
+<ul>
+<li><p>Builder: 抽象构造者类，为创建一个Product对象的各个部件指定抽象接口。</p>
+</li>
+<li><p>ConcreteBuilder：具体构造者类，实现Builder的接口以构造和装配该产品的各个部件。定义并明确它所创建的表示。提供一个检索产品的接口</p>
+</li>
+<li><p>Director：指挥者，构造一个使用Builder接口的对象。</p>
+</li>
+<li><p>Product：表示被构造的复杂对象。ConcreateBuilder创建该产品的内部表示并定义它的装配过程。</p>
+</li>
+</ul>
+<p>包含定义组成部件的类，包括将这些部件装配成最终产品的接口。</p>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Builder.jpg" alt=""><br>代码实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">abstract class Builder</span><br><span class="line">&#123;</span><br><span class="line">    protected $car;</span><br><span class="line">    abstract public function buildPartA();</span><br><span class="line">    abstract public function buildPartB();</span><br><span class="line">    abstract public function buildPartC();</span><br><span class="line">    abstract public function getResult();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class CarBuilder extends Builder</span><br><span class="line">&#123;</span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;car = new Car();</span><br><span class="line">    &#125;</span><br><span class="line">    public function buildPartA()&#123;</span><br><span class="line">        $this-&gt;car-&gt;setPartA(&apos;发动机&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function buildPartB()&#123;</span><br><span class="line">        $this-&gt;car-&gt;setPartB(&apos;轮子&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function buildPartC()&#123;</span><br><span class="line">        $this-&gt;car-&gt;setPartC(&apos;其他零件&apos;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function getResult()&#123;</span><br><span class="line">        return $this-&gt;car;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Car</span><br><span class="line">&#123;</span><br><span class="line">    protected $partA;</span><br><span class="line">    protected $partB;</span><br><span class="line">    protected $partC;</span><br><span class="line"></span><br><span class="line">    public function setPartA($str)&#123;</span><br><span class="line">        $this-&gt;partA = $str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function setPartB($str)&#123;</span><br><span class="line">        $this-&gt;partB = $str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function setPartC($str)&#123;</span><br><span class="line">        $this-&gt;partC = $str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function show()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;这辆车由：&quot;.$this-&gt;partA.&apos;,&apos;.$this-&gt;partB.&apos;,和&apos;.$this-&gt;partC.&apos;组成&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Director</span><br><span class="line">&#123;</span><br><span class="line">    public $myBuilder;</span><br><span class="line"></span><br><span class="line">    public function startBuild()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;myBuilder-&gt;buildPartA();</span><br><span class="line">        $this-&gt;myBuilder-&gt;buildPartB();</span><br><span class="line">        $this-&gt;myBuilder-&gt;buildPartC();</span><br><span class="line">        return $this-&gt;myBuilder-&gt;getResult();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function setBuilder(Builder $builder)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;myBuilder = $builder;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$carBuilder = new CarBuilder();</span><br><span class="line">$director = new Director();</span><br><span class="line">$director-&gt;setBuilder($carBuilder);</span><br><span class="line">$newCar = $director-&gt;startBuild();</span><br><span class="line">$newCar-&gt;show();</span><br></pre></td></tr></table></figure></p>
+<h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><blockquote>
+<p>单例模式，也叫单子模式，是一种常用的软件设计模式。在应用这个模式时，单例对象的类必须保证只有一个实例存在。许多时候整个系统只需要拥有一个的全局对象，这样有利于我们协调系统整体的行为。</p>
+</blockquote>
+<blockquote>
+<p>实现单例模式的思路是：一个类能返回对象一个引用(永远是同一个)和一个获得该实例的方法（必须是静态方法，通常使用getInstance这个名称）；当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋予该类保持的引用；同时我们还将该类的构造函数定义为私有方法，这样其他处的代码就无法通过调用该类的构造函数来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例。</p>
+</blockquote>
+<p>单例模式的要点有：某个类只能有一个实例；它必须自行创建本身的实例；它必须自行向整个系统提供这个实例。单例模式是一种对象创建型模式。<br>角色：</p>
+<ul>
+<li>Singleton：单例类<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Singleton.jpg" alt=""></li>
+</ul>
+<p>代码实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Singleton</span><br><span class="line">&#123;</span><br><span class="line">    private static $instance;</span><br><span class="line">    //私有构造方法，禁止使用new创建对象</span><br><span class="line">    private function __construct()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public static function getInstance()&#123;</span><br><span class="line">        if (!isset(self::$instance)) &#123;</span><br><span class="line">            self::$instance = new self;</span><br><span class="line">        &#125;</span><br><span class="line">        return self::$instance;</span><br><span class="line">    &#125;</span><br><span class="line">    //将克隆方法设为私有，禁止克隆对象</span><br><span class="line">    private function __clone()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public function say()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;这是用单例模式创建对象实例 &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public function operation()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;这里可以添加其他方法和操作 &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// $shiyanlou = new Singleton();</span><br><span class="line">$shiyanlou = Singleton::getInstance();</span><br><span class="line">$shiyanlou-&gt;say();</span><br><span class="line">$shiyanlou-&gt;operation();</span><br><span class="line"></span><br><span class="line">$newShiyanlou = Singleton::getInstance();</span><br><span class="line">var_dump($shiyanlou === $newShiyanlou);</span><br></pre></td></tr></table></figure></p>
+<p>上述的五个模式均属于创建型模式，接下来将要介绍的六个模式属于结构型模式。</p>
+<h3 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h3><blockquote>
+<p>结构型模式(Structural Pattern)描述如何将<code>类</code>或者<code>对 象</code>结合在一起形成更大的结构，就像搭积木，可以通过 简单积木的组合形成复杂的、功能更为强大的结构。</p>
+</blockquote>
+<p>结构型模式可以分为<code>类结构型模式</code>和<code>对象结构型模式</code>：</p>
+<ul>
+<li>类结构型模式关心类的组合，由多个类可以组合成一个更大的系统，在类结构型模式中一般只存在继承关系和实现关系。</li>
+<li>对象结构型模式关心<code>类与对象的组合</code>，通过<code>关联关系</code>使得在一 个类中定义另一个类的实例对象，然后通过该对象调用其方法。 根据“合成复用原则”，在系统中尽量使用关联关系来替代继 承关系，因此<code>大部分结构型模式都是对象结构型模式</code>。<h4 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h4><blockquote>
+<p>在设计模式)中，适配器模式（英语：adapter pattern）有时候也称包装样式或者包装(wrapper)。将一个类)的接口转接成用户所期待的。一个适配使得因接口不兼容而不能在一起工作的类工作在一起，做法是将类自己的接口包裹在一个已存在的类中。</p>
+</blockquote>
+</li>
+</ul>
+<p>角色：</p>
+<ul>
+<li><p>Target：目标抽象类</p>
+</li>
+<li><p>Adapter：适配器类</p>
+</li>
+<li><p>Adaptee：适配者类</p>
+</li>
+<li><p>Client：客户类</p>
+</li>
+</ul>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Adapter.jpg" alt=""></p>
+<p>实例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Adaptee</span><br><span class="line">&#123;</span><br><span class="line">    public function realRequest()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;这是被适配者真正的调用方法&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Target&#123;</span><br><span class="line">    public function request();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Adapter implements Target</span><br><span class="line">&#123;</span><br><span class="line">    protected $adaptee;</span><br><span class="line">    function __construct(Adaptee $adaptee)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;adaptee = $adaptee;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function request()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;适配器转换：&quot;;</span><br><span class="line">        $this-&gt;adaptee-&gt;realRequest();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$adaptee = new Adaptee();</span><br><span class="line">$target = new Adapter($adaptee);</span><br><span class="line">$target-&gt;request();</span><br></pre></td></tr></table></figure></p>
+<p>优点：将目标类和适配者类解耦，通过引入一个适配器类来重用现有的适配者类，而无须修改原有代码。增加了类的透明性和复用性，将具体的实现封装在适配者类中，对于客户端类来说是透明的，而且提高了适配者的复用性。</p>
+<h4 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h4><blockquote>
+<p>桥接模式是软件设计模式中最复杂的模式之一，它把<code>事物对象</code>和<code>其具体行为</code>、<code>具体特征</code>分离开来，使它们可以各自独立的变化。事物对象仅是一个抽象的概念。如“圆形”、“三角形”归于抽象的“<code>形状</code>”之下，而“画圆”、“画三角”归于实现行为的“<code>画图</code>”类之下，然后由“形状”调用“画图”。</p>
+</blockquote>
+<p>理解桥接模式，重点需要理解如何将抽象化(Abstraction)与实现化(Implementation)脱耦，使得二者可以独立地变化。桥接模式提高了系统的可扩充性，在两个变化维度中任意扩展一个维度，都不需要修改原有系统。</p>
+<p>角色：</p>
+<ul>
+<li><p>Abstraction：定义抽象的接口，该接口包含实现具体行为、具体特征的Implementor接口</p>
+</li>
+<li><p>Refined Abstraction：抽象接口Abstraction的子类，依旧是一个抽象的事物名</p>
+</li>
+<li><p>Implementor：定义具体行为、具体特征的应用接口</p>
+</li>
+<li><p>ConcreteImplementor：实现Implementor接口</p>
+</li>
+</ul>
+<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Bridge.jpg" alt=""><br>实例代码;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">interface DrawingAPI&#123;</span><br><span class="line">    public function drawCircle($x,$y,$radius);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* drawAPI1</span><br><span class="line">*/</span><br><span class="line">class DrawingAPI1 implements DrawingAPI</span><br><span class="line">&#123;</span><br><span class="line">    public function drawCircle($x,$y,$radius)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;API1.circle at (&quot;.$x.&apos;,&apos;.$y.&apos;) radius &apos;.$radius.&apos;&lt;br&gt;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* drawAPI2</span><br><span class="line">*/</span><br><span class="line">class DrawingAPI2 implements DrawingAPI</span><br><span class="line">&#123;</span><br><span class="line">    public function drawCircle($x,$y,$radius)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;API2.circle at (&quot;.$x.&apos;,&apos;.$y.&apos;) radius &apos;.$radius.&apos;&lt;br&gt;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">*shape接口</span><br><span class="line">*/</span><br><span class="line">interface Shape&#123;</span><br><span class="line">    public function draw();</span><br><span class="line">    public function resize($radius);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class CircleShape implements Shape</span><br><span class="line">&#123;</span><br><span class="line">    private $x;</span><br><span class="line">    private $y;</span><br><span class="line">    private $radius;</span><br><span class="line">    private $drawingAPI;</span><br><span class="line">    function __construct($x,$y,$radius,DrawingAPI $drawingAPI)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;x = $x;</span><br><span class="line">        $this-&gt;y = $y;</span><br><span class="line">        $this-&gt;radius = $radius;</span><br><span class="line">        $this-&gt;drawingAPI = $drawingAPI;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function draw()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;drawingAPI-&gt;drawCircle($this-&gt;x,$this-&gt;y,$this-&gt;radius);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function resize($radius)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;radius = $radius;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$shape1 = new CircleShape(1,2,4,new DrawingAPI1());</span><br><span class="line">$shape2 = new CircleShape(1,2,4,new DrawingAPI2());</span><br><span class="line">$shape1-&gt;draw();</span><br><span class="line">$shape2-&gt;draw();</span><br><span class="line">$shape1-&gt;resize(10);</span><br><span class="line">$shape1-&gt;draw();</span><br></pre></td></tr></table></figure></p>
+<h4 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h4><blockquote>
+<p>修饰模式，是面向对象编程领域中，一种动态地往一个类中添加<code>新的行为</code>的设计模式。就功能而言，修饰模式相比生成子类更为灵活，<code>这样可以给某个对象而不是整个类添加一些功能</code>。</p>
+</blockquote>
+<p>一般来说，给一个对象或者类增加行为的方式可以有两种：</p>
+<ul>
+<li>继承机制，使用继承机制是给现有类添加功能的一种有效途径，通过继承一个现有类可以使得子类在拥有自身方法的同时还拥有父类的方法。但是这种方法是静态的，用户不能控制增加行为的方式和时机。</li>
+<li>关联机制，即将一个类的对象嵌入另一个对象中，由另一个对象来决定是否调用嵌入对象的行为以便扩展自己的行为，我们称这个嵌入的对象为装饰器(Decorator)<br><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/Decorator.jpg" alt=""></li>
+</ul>
+<p>通过使用修饰模式，可以在运行时扩充一个类的功能。原理是：增加一个修饰类包裹原来的类，包裹的方式一般是通过在将原来的对象作为修饰类的构造函数的参数。装饰类实现新的功能，但是，在不需要用到新功能的地方，它可以直接调用原来的类中的方法。修饰类必须和原来的类有相同的接口。</p>
+<p>修饰模式是类继承的另外一种选择。类继承在编译时候增加行为，而装饰模式是在运行时增加行为。</p>
+<p>角色</p>
+<ul>
+<li><p>Component: 抽象构件</p>
+</li>
+<li><p>ConcreteComponent: 具体构件</p>
+</li>
+<li><p>Decorator: 抽象装饰类</p>
+</li>
+<li><p>ConcreteDecorator: 具体装饰类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php </span><br><span class="line">abstract class Component &#123;</span><br><span class="line">    abstract public function operation();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyComponent extends Component</span><br><span class="line">&#123;</span><br><span class="line">    public function operation()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;这是正常的组件方法 &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abstract class Decorator extends Component &#123;</span><br><span class="line">    protected $component;</span><br><span class="line">    function __construct(Component $component)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;component = $component;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function operation()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;component-&gt;operation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyDecorator extends Decorator</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    function __construct(Component $component)</span><br><span class="line">    &#123;</span><br><span class="line">        parent::__construct($component);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function addMethod()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;这是装饰器添加的方法 &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function operation()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;addMethod();</span><br><span class="line">        parent::operation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$component = new MyComponent();</span><br><span class="line">$da = new MyDecorator($component);</span><br><span class="line">$da-&gt;operation();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h4><blockquote>
+<p>外观模式(Facade Pattern)：外部与一个子系统的通信必须通过一个统一的外观对象进行，为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。外观模式又称为门面模式，它是一种对象结构型模式</p>
+</blockquote>
+<p>举一个简单的例子，相信大家都使用过 C++ 语言，他是一门编译型语言，写完代码之后，我们需要经过编译之后才能运行，在IDE中，会有一个 Build 的按钮，点击它即可完成编译过程，但是这一个简单的动作背后，却是一系列复杂操作的协调配合，至少包括词法分析，语法分析，生成中间代码，生成汇编代码以及链接等操作，作为普通开发人员，我们不必在意这些过程是如何完成的，只需要点击Build按钮，IDE就会自动帮我们完成背后的工作。那么这个Build按钮就是IDE为我们提供的高级接口，通过他来完成各种子系统的协调工作。</p>
+<p>角色：</p>
+<ul>
+<li>Facade：外观角色，提供高级接口</li>
+<li>SubSystem：子系统角色，负责各自的功能实现</li>
+</ul>
+<p>实例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">class SystemA</span><br><span class="line">&#123;</span><br><span class="line">    public function operationA()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;operationA &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SystemB</span><br><span class="line">&#123;</span><br><span class="line">    public function operationB()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;operationB &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SystemC</span><br><span class="line">&#123;</span><br><span class="line">    public function operationC()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;operationC &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Facade</span><br><span class="line">&#123;</span><br><span class="line">    protected $systemA;</span><br><span class="line">    protected $systemB;</span><br><span class="line">    protected $systemC;</span><br><span class="line"></span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;systemA = new SystemA();</span><br><span class="line">        $this-&gt;systemB = new SystemB();</span><br><span class="line">        $this-&gt;systemC = new SystemC();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function myOperation()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;systemA-&gt;operationA();</span><br><span class="line">        $this-&gt;systemB-&gt;operationB();</span><br><span class="line">        $this-&gt;systemC-&gt;operationC();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$facade = new Facade();</span><br><span class="line">$facade-&gt;myOperation();</span><br></pre></td></tr></table></figure></p>
+<p>优缺点：<br>使用外观模式最大的优点就是子系统与客户端之间是松耦合的关系，客户端不必知道具体有哪些子系统，也无需知道他们是如何工作的，通过引入一个外观类，提供一个客户端间接访问子系统的高级接口。子系统和外观类可以独立运作，修改某一个子系统的内容，不会影响到其他子系统，也不会影响到外观对象。不过它的缺点就是它不够灵活，当需要增加一个子系统的时候，需要修改外观类。</p>
+<h4 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h4><blockquote>
+<p>享元模式（英语：Flyweight Pattern）是一种软件设计模式)。它使用共享物件，用来尽可能减少内存使用量以及分享资讯给尽可能多的相似物件；它适合用于当大量物件只是重复因而导致无法令人接受的使用大量内存。通常物件中的部分状态是可以分享。常见做法是把它们放在外部数据结构，当需要使用时再将它们传递给享元。由于享元模式要求能够共享的对象必须是细粒度对象，因此它又称为轻量级模式，它是一种对象结构型模式。</p>
+</blockquote>
+<p>要理解享元模式，先要理解两个重要的概念：内部状态和外部状态。</p>
+<p>内部状态存储于flyweight中，它包含了独立于flyweight场景的信息，这些信息使得flyweight可以被共享。而外部状态取决于flyweight场景，并根据场景而变化，因此不可共享。用户对象负责在必要的时候将外部状态传递给flyweight。</p>
+<p>角色</p>
+<ul>
+<li>Flyweight： 抽象享元类</li>
+<li>ConcreteFlyweight： 具体享元类</li>
+<li>UnsharedConcreteFlyweight： 非共享具体享元类</li>
+<li>FlyweightFactory： 享元工厂类<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">interface Flyweight&#123;</span><br><span class="line">    public function operation();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyFlyweight implements Flyweight</span><br><span class="line">&#123;</span><br><span class="line">    protected $intrinsicState;</span><br><span class="line">    function __construct($str)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;intrinsicState = $str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function operation()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;MyFlyweight[&apos;.$this-&gt;intrinsicState.&apos;] do operation. &lt;br&gt;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class FlyweightFactory</span><br><span class="line">&#123;</span><br><span class="line">    protected static $flyweightPool;</span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isset(self::$flyweightPool)) &#123;</span><br><span class="line">            self::$flyweightPool = [];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public function getFlyweight($str)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        if (!array_key_exists($str,self::$flyweightPool)) &#123;</span><br><span class="line">            $fw = new MyFlyweight($str);</span><br><span class="line">            self::$flyweightPool[$str] = $fw;</span><br><span class="line">            return $fw;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            echo &quot;aready in the pool,use the exist one: &lt;br&gt;&quot;;</span><br><span class="line">            return self::$flyweightPool[$str];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$factory = new FlyweightFactory();</span><br><span class="line">$fw = $factory-&gt;getFlyweight(&apos;one&apos;);</span><br><span class="line">$fw-&gt;operation();</span><br><span class="line"></span><br><span class="line">$fw1 = $factory-&gt;getFlyweight(&apos;two&apos;);</span><br><span class="line">$fw1-&gt;operation();</span><br><span class="line"></span><br><span class="line">$fw2 = $factory-&gt;getFlyweight(&apos;one&apos;);</span><br><span class="line">$fw2-&gt;operation();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>享元模式的核心在于享元工厂类，享元工厂类的作用在于提供一个用于存储享元对象的享元池，用户需要对象时，首先从享元池中获取，如果享元池中不存在，则创建一个新的享元对象返回给用户，并在享元池中保存该新增对象。</p>
+<h4 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h4><p>所谓的代理者是指一个类别可以作为其它东西的接口。代理者可以作任何东西的接口：网络连接、内存中的大对象、文件或其它昂贵或无法复制的资源。</p>
+<p>代理对象可以在客户端和目标对象之间起到 中介的作用，并且可以通过代理对象去掉客户不能看到 的内容和服务或者添加客户需要的额外服务。</p>
+<p>可能大家听得最多且最常用的就是VPN网络代理，或者代理服务器等。</p>
+<p>角色<br>-Subject: 抽象主题角色</p>
+<ul>
+<li>Proxy: 代理主题角色</li>
+<li>RealSubject: 真实主题角色<br>实例代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">interface Subject&#123;</span><br><span class="line">    public function request();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class RealSubject implements Subject</span><br><span class="line">&#123;</span><br><span class="line">    public function request()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;RealSubject::request &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Proxy implements Subject</span><br><span class="line">&#123;</span><br><span class="line">    protected $realSubject;</span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;realSubject = new RealSubject();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function beforeRequest()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Proxy::beforeRequest &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function request()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;beforeRequest();</span><br><span class="line">        $this-&gt;realSubject-&gt;request();</span><br><span class="line">        $this-&gt;afterRequest();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function afterRequest()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Proxy::afterRequest &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$proxy = new Proxy();</span><br><span class="line">$proxy-&gt;request();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>下面将会介绍五种行为型模式。</p>
+<h3 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h3><blockquote>
+<p>行为型模式(Behavioral Pattern)是对在不同的对象之间划分责任和算法的抽象化。</p>
+</blockquote>
+<p>行为型模式不仅仅关注类和对象的结构，而且重点关注它们之间的相互作用。</p>
+<p>通过行为型模式，可以更加清晰地划分类与对象的职责，并研究系统在运行时实例对象 之间的交互。在系统运行时，对象并不是孤立的，它们可以通过相互通信与协作完成某些复杂功能，一个对象在运行时也将影响到其他对象的运行。</p>
+<p>行为型模式分为类行为型模式和对象行为型模式两种：</p>
+<ul>
+<li>类行为型模式：类的行为型模式使用继承关系在几个类之间分配行为，类行为型模式主要通过多态等方式来分配父类与子类的职责。</li>
+<li>对象行为型模式：对象的行为型模式则使用对象的聚合关联关系来分配行为，对象行为型模式主要是通过对象关联等方式来分配两个或多个类的职责。根据“合成复用原则”，系统中要尽量使用关联关系来取代继承关系，因此大部分行为型设计模式都属于对象行为型设计模式</li>
+</ul>
+<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><blockquote>
+<p>在软件设计中，我们经常需要向某些对象发送请求，但是并不知道请求的接收者是谁，也不知道被请求的操作是哪个，我们只需在程序运行时指定具体的请求接收者即可，此时，可以使用命令模式来进行设计，使得请求发送者与请求接收者消除彼此之间的耦合，让对象之间的调用关系更加灵活。</p>
+</blockquote>
+<p>主要特点就是<code>将一个请求封装为一个对象</code>，从而使我们可用不同的请求对客户进行<code>参数化</code>；对请求排队或者记录请求日志，以及支持可撤销的操作。命令模式是一种对象行为型模式，其别名为<code>动作(Action)模式`</code>或事务(Transaction)模式`</p>
+<p>角色</p>
+<ul>
+<li>Command: 抽象命令类</li>
+<li>ConcreteCommand: 具体命令类</li>
+<li>Invoker: 调用者</li>
+<li>Receiver: 接收者</li>
+<li>Client:客户类</li>
+</ul>
+<p>示例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">class Receiver</span><br><span class="line">&#123;</span><br><span class="line">    public function Action()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Receiver-&gt;Action&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abstract class Command&#123;</span><br><span class="line">    protected $receiver;</span><br><span class="line">    function __construct(Receiver $receiver)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;receiver = $receiver;</span><br><span class="line">    &#125;</span><br><span class="line">    abstract public function Execute();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyCommand extends Command</span><br><span class="line">&#123;</span><br><span class="line">    function __construct(Receiver $receiver)</span><br><span class="line">    &#123;</span><br><span class="line">        parent::__construct($receiver);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function Execute()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;receiver-&gt;Action();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Invoker</span><br><span class="line">&#123;</span><br><span class="line">    protected $command;</span><br><span class="line">    function __construct(Command $command)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;command = $command;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function Invoke()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;command-&gt;Execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$receiver = new Receiver();</span><br><span class="line">$command = new MyCommand($receiver);</span><br><span class="line">$invoker = new Invoker($command);</span><br><span class="line">$invoker-&gt;Invoke();</span><br></pre></td></tr></table></figure></p>
+<h4 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h4><blockquote>
+<p>用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</p>
+</blockquote>
+<p>举个简单的例子，就比如大家平时喜欢用微信聊天，你发送的聊天内容需要通过微信服务器进行中间处理，然后下发给你的好友，微信服务器就是一个中介者。</p>
+<p>角色</p>
+<ul>
+<li>Mediator: 抽象中介者</li>
+<li>ConcreteMediator: 具体中介者</li>
+<li>Colleague: 抽象同事类</li>
+<li>ConcreteColleague: 具体同事类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">abstract class Colleague&#123;</span><br><span class="line">    protected $mediator;</span><br><span class="line">    abstract public function sendMsg($who,$msg);</span><br><span class="line">    abstract public function receiveMsg($msg);</span><br><span class="line">    public function setMediator(Mediator $mediator)&#123;</span><br><span class="line">        $this-&gt;mediator = $mediator;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class ColleagueA extends Colleague</span><br><span class="line">&#123;</span><br><span class="line">    public function sendMsg($toWho,$msg)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Send Msg From ColleagueA To: &quot;.$toWho . &apos;&lt;br&gt;&apos;;</span><br><span class="line">        $this-&gt;mediator-&gt;opreation($toWho,$msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function receiveMsg($msg)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;ColleagueA Receive Msg: &quot;.$msg . &apos;&lt;br&gt;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class ColleagueB extends Colleague</span><br><span class="line">&#123;</span><br><span class="line">    public function sendMsg($toWho,$msg)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Send Msg From ColleagueB To: &quot;.$toWho . &apos;&lt;br&gt;&apos;;</span><br><span class="line">        $this-&gt;mediator-&gt;opreation($toWho,$msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function receiveMsg($msg)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;ColleagueB Receive Msg: &quot;.$msg . &apos;&lt;br&gt;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abstract class Mediator&#123;</span><br><span class="line">    abstract public function opreation($id,$message);</span><br><span class="line">    abstract public function register($id,Colleague $colleague);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyMediator extends Mediator</span><br><span class="line">&#123;</span><br><span class="line">    protected static $colleagues;</span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isset(self::$colleagues)) &#123;</span><br><span class="line">            self::$colleagues = [];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function opreation($id,$message)</span><br><span class="line">    &#123;</span><br><span class="line">        if (!array_key_exists($id,self::$colleagues)) &#123;</span><br><span class="line">            echo &quot;colleague not found&quot;;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        $colleague = self::$colleagues[$id];</span><br><span class="line">        $colleague-&gt;receiveMsg($message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function register($id,Colleague $colleague)</span><br><span class="line">    &#123;</span><br><span class="line">        if (!in_array($colleague, self::$colleagues)) &#123;</span><br><span class="line">            self::$colleagues[$id] = $colleague;</span><br><span class="line">        &#125;</span><br><span class="line">        $colleague-&gt;setMediator($this);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$colleagueA = new ColleagueA();</span><br><span class="line">$colleagueB = new ColleagueB();</span><br><span class="line">$mediator = new MyMediator();</span><br><span class="line">$mediator-&gt;register(1,$colleagueA);</span><br><span class="line">$mediator-&gt;register(2,$colleagueB);</span><br><span class="line">$colleagueA-&gt;sendMsg(2,&apos;hello admin&apos;);</span><br><span class="line">$colleagueB-&gt;sendMsg(1,&apos;shiyanlou&apos;);</span><br></pre></td></tr></table></figure>
+<p>中介者模式的两个主要作用：中转作用（结构性）：通过中介者提供的中转作用，各个同事对象就不再需要显式引用其他同事，当需要和其他同事进行通信时，通过中介者即可。该中转作用属于中介者在结构上的支持。</p>
+<p>协调作用（行为性）：中介者可以更进一步的对同事之间的关系进行封装，同事可以一致地和中介者进行交互，而不需要指明中介者需要具体怎么做，中介者根据封装在自身内部的协调逻辑，对同事的请求进行进一步处理，将同事成员之间的关系行为进行分离和封装。该协调作用属于中介者在行为上的支持。</p>
+<h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><blockquote>
+<p> 在此种模式中，一个目标对象管理所有相依于它的观察者对象，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来<code>实时事件处理系统</code>。观察者模式又叫做发布-订阅（Publish/Subscribe）模式、模型-视图（Model/View）模式、源-监听器（Source/Listener）模式或从属者（Dependents）模式。</p>
+</blockquote>
+<p>角色</p>
+<ul>
+<li><p>Subject: 抽象目标类，一般至少提供三个接口：</p>
+<ul>
+<li>添附(Attach)：新增观察者到串炼内，以追踪目标对象的变化。</li>
+<li>解附(Detach)：将已经存在的观察者从串炼中移除。</li>
+<li>通知(Notify)：利用观察者所提供的更新函式来通知此目标已经产生变化。</li>
+</ul>
+</li>
+<li><p>ConcreteSubject: 具体目标，提供了观察者欲追踪的状态，也可设置目标状态</p>
+</li>
+<li><p>Observer: 抽象观察者，定义观察者的更新操作接口</p>
+</li>
+<li><p>ConcreteObserver: 具体观察者，实现抽象观察者的接口，做出自己的更新操作</p>
+</li>
+</ul>
+<p>生活实例：<br>举一个生活中的例子：比如用户（观察者）从报社订阅报纸，报社和用户之间是一对多依赖，用户可以在报社订阅（register）报纸，报社可以把最新的报纸发给用户（notify），用户自动收到更新。在用户不需要的时候还可以取消注册（remove）。<br>示例代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">abstract class Obeserver&#123;</span><br><span class="line">    abstract function update(Subject $sub);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abstract class Subject&#123;</span><br><span class="line">    protected static $obeservers;</span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isset(self::$obeservers)) &#123;</span><br><span class="line">            self::$obeservers = [];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public function attach(Obeserver $obeserver)&#123;</span><br><span class="line">        if (!in_array($obeserver, self::$obeservers)) &#123;</span><br><span class="line">            self::$obeservers[] = $obeserver;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public function deattach(Obeserver $obeserver)&#123;</span><br><span class="line">        if (in_array($obeserver, self::$obeservers)) &#123;</span><br><span class="line">            $key = array_search($obeserver,self::$obeservers);</span><br><span class="line">            unset(self::$obeservers[$key]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    abstract public function setState($state);</span><br><span class="line">    abstract public function getState();</span><br><span class="line">    public function notify()</span><br><span class="line">    &#123;</span><br><span class="line">        foreach (self::$obeservers as $key =&gt; $value) &#123;</span><br><span class="line">            $value-&gt;update($this);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MySubject extends Subject</span><br><span class="line">&#123;</span><br><span class="line">    protected $state;</span><br><span class="line">    public function setState($state)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;state = $state;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function getState()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;state;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyObeserver extends Obeserver</span><br><span class="line">&#123;</span><br><span class="line">    protected $obeserverName;</span><br><span class="line">    function __construct($name)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;obeserverName = $name;</span><br><span class="line">    &#125;</span><br><span class="line">    public function update(Subject $sub)</span><br><span class="line">    &#123;</span><br><span class="line">        $state = $sub-&gt;getState();</span><br><span class="line">        echo &quot;Update Obeserver[&quot;.$this-&gt;obeserverName.&apos;] State: &apos;.$state . &apos;&lt;br&gt;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$subject = new MySubject();</span><br><span class="line">$one = new MyObeserver(&apos;one&apos;);</span><br><span class="line">$two = new MyObeserver(&apos;two&apos;);</span><br><span class="line"></span><br><span class="line">$subject-&gt;attach($one);</span><br><span class="line">$subject-&gt;attach($two);</span><br><span class="line">$subject-&gt;setState(1);</span><br><span class="line">$subject-&gt;notify();</span><br><span class="line">echo &quot;--------------------- &lt;br&gt;&quot;;</span><br><span class="line">$subject-&gt;setState(2);</span><br><span class="line">$subject-&gt;deattach($two);</span><br><span class="line">$subject-&gt;notify();</span><br></pre></td></tr></table></figure>
+<h4 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h4><blockquote>
+<p>状态模式：允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它的类。其别名为状态对象(Objects for States)，状态模式是一种对象行为型模式。</p>
+</blockquote>
+<p>有时，一个对象的行为受其一个或多个具体的属性变化而变化，这样的属性也叫作状态，这样的的对象也叫作有状态的对象。</p>
+<p>角色</p>
+<ul>
+<li><p>Context: 环境类，维护一个ConcreteState子类的实例，这个实例定义当前状态；</p>
+</li>
+<li><p>State: 抽象状态类，定义一个接口以封装与Context的一个特定状态相关的行为；</p>
+</li>
+<li><p>ConcreteState: 具体状态类，每一个子类实现一个与Context的一个状态相关的行为。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line"></span><br><span class="line">class Context&#123;</span><br><span class="line">    protected $state;</span><br><span class="line">    function __construct()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;state = StateA::getInstance();</span><br><span class="line">    &#125;</span><br><span class="line">    public function changeState(State $state)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;state = $state;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function request()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;state-&gt;handle($this);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abstract class State&#123;</span><br><span class="line">    abstract function handle(Context $context);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class StateA extends State</span><br><span class="line">&#123;</span><br><span class="line">    private static $instance;</span><br><span class="line">    private function __construct()&#123;&#125;</span><br><span class="line">    private function __clone()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public static function getInstance()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isset(self::$instance)) &#123;</span><br><span class="line">            self::$instance = new self;</span><br><span class="line">        &#125;</span><br><span class="line">        return self::$instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function handle(Context $context)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;doing something in State A.\n done,change state to B &lt;br&gt;&quot;;</span><br><span class="line">        $context-&gt;changeState(StateB::getInstance());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class StateB extends State</span><br><span class="line">&#123;</span><br><span class="line">    private static $instance;</span><br><span class="line">    private function __construct()&#123;&#125;</span><br><span class="line">    private function __clone()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public static function getInstance()</span><br><span class="line">    &#123;</span><br><span class="line">        if (!isset(self::$instance)) &#123;</span><br><span class="line">            self::$instance = new self;</span><br><span class="line">        &#125;</span><br><span class="line">        return self::$instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function handle(Context $context)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;doing something in State B.\n done,change state to A &lt;br&gt;&quot;;</span><br><span class="line">        $context-&gt;changeState(StateA::getInstance());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$context = new Context();</span><br><span class="line">$context-&gt;request();</span><br><span class="line">$context-&gt;request();</span><br><span class="line">$context-&gt;request();</span><br><span class="line">$context-&gt;request();</span><br></pre></td></tr></table></figure>
+<h4 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h4><blockquote>
+<p>策略模式(Strategy Pattern)：定义一系列算法，将每一个算法封装起来，并让它们可以相互替换。策略模式让算法独立于使用它的客户而变化，也称为政策模式(Policy)。</p>
+</blockquote>
+<p>常见示例：常见的排序算法有快速排序，冒泡排序，归并排序，选择排序等，如果我们需要在一个算法类中提供这些算法，一个常见的解决方法就是在类中定义多个方法，每个方法定义一种具体的排序算法，然后使用 if…else…去判断到底是哪种算法，或者直接调用某个具体方法。这种方法是将算法的实现硬编码到类中，这样做最大的弊端就是算法类类非常臃肿，而且当需要增加或者更换一种新的排序方法时候，需要修改算法类的代码，同时也需要修改客户端调用处的代码。策略模式就是为了解决这列问题而设计的。</p>
+<p>角色</p>
+<ul>
+<li><p>Context: 环境类，使用一个ConcreteStrategy对象来配置；维护一个对Stategy对象的引用，同时，可以定义一个接口来让Stategy访问它的数据。</p>
+</li>
+<li><p>Strategy: 抽象策略类，定义所有支持的算法的公共接口。Context使用这个接口来调用某ConcreteStrategy定义的算法；</p>
+</li>
+<li><p>ConcreteStrategy: 具体策略类，实现 Strategy 接口的具体算法；</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">abstract class Strategy&#123;</span><br><span class="line">    abstract function use();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class StrategyA extends Strategy</span><br><span class="line">&#123;</span><br><span class="line">    public function use()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;这是使用策略A的方法 &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class StrategyB extends Strategy</span><br><span class="line">&#123;</span><br><span class="line">    public function use()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;这是使用策略B的方法 &lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Context</span><br><span class="line">&#123;</span><br><span class="line">    protected $startegy;</span><br><span class="line">    public function setStrategy(Strategy $startegy)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;startegy = $startegy;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function use()</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;startegy-&gt;use();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$context = new Context();</span><br><span class="line">$startegyA = new StrategyA();</span><br><span class="line">$startegyB = new StrategyB();</span><br><span class="line">$context-&gt;setStrategy($startegyA);</span><br><span class="line">$context-&gt;use();</span><br><span class="line"></span><br><span class="line">$context-&gt;setStrategy($startegyB);</span><br><span class="line">$context-&gt;use();</span><br></pre></td></tr></table></figure>
+<h3 id="【参考来源】"><a href="#【参考来源】" class="headerlink" title="【参考来源】"></a>【参考来源】</h3><ul>
+<li><a href="https://design-patterns.readthedocs.io" target="_blank" rel="noopener">https://design-patterns.readthedocs.io</a></li>
+<li><a href="https://www.shiyanlou.com/courses/699" target="_blank" rel="noopener">https://www.shiyanlou.com/courses/699</a></li>
+</ul>
+<hr>
+<p>本作品采用 <a href="https://creativecommons.org/licenses/by-sa/2.5/cn/" target="_blank" rel="noopener">知识共享署名 2.5 中国大陆许可协议 </a>进行许可，欢迎转载，但转载请注明来自<a href="https://jaymo666.github.io/">JayMo</a>，并保持转载后文章内容的完整。本人保留所有版权相关权利。<br>本文永久链接：<a href="http://jaymo666.github.io/2018/04/16/设计模式详解/">http://jaymo666.github.io/2018/04/16/设计模式详解/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
+            <a href="/tags/实例/" rel="tag"># 实例</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/03/js十大排序算法详解/" rel="next" title="js十大排序算法详解">
+                <i class="fa fa-chevron-left"></i> js十大排序算法详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      <div class="theme-info">
+        <div class="powered-by"></div>
+        <span class="post-count">共151.4k字</span>
+      </div>
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="莫爵贵(JayMo)" />
+          <p class="site-author-name" itemprop="name">莫爵贵(JayMo)</p>
+           
+              <p class="site-description motion-element" itemprop="description">JayMo个人网站 博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index(1).html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index(1).html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jaymo666" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/khgrandpa" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://zhihu.com/people/jaymo-it" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28285910&auto=0&height=66"></iframe>
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#16-个-PHP-设计模式详解-1"><span class="nav-number">1.</span> <span class="nav-text">16 个 PHP 设计模式详解(1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML类图和时序图"><span class="nav-number">4.</span> <span class="nav-text">UML类图和时序图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#泛化关系"><span class="nav-number">4.1.</span> <span class="nav-text">泛化关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现关系"><span class="nav-number">4.2.</span> <span class="nav-text">实现关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚合关系"><span class="nav-number">4.3.</span> <span class="nav-text">聚合关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合关系"><span class="nav-number">4.4.</span> <span class="nav-text">组合关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联关系"><span class="nav-number">4.5.</span> <span class="nav-text">关联关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖关系"><span class="nav-number">4.6.</span> <span class="nav-text">依赖关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时序图"><span class="nav-number">5.</span> <span class="nav-text">时序图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式详解"><span class="nav-number">6.</span> <span class="nav-text">设计模式详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建型模式"><span class="nav-number">6.1.</span> <span class="nav-text">创建型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单工厂模式"><span class="nav-number">6.1.1.</span> <span class="nav-text">简单工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模式结构"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">模式结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优缺点"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">6.1.2.</span> <span class="nav-text">工厂方法模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模式结构-1"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">模式结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优缺点-1"><span class="nav-number">6.1.2.2.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">6.1.3.</span> <span class="nav-text">抽象工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模式结构-2"><span class="nav-number">6.1.3.1.</span> <span class="nav-text">模式结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建造者模式"><span class="nav-number">6.1.4.</span> <span class="nav-text">建造者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模式结构-3"><span class="nav-number">6.1.4.1.</span> <span class="nav-text">模式结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式"><span class="nav-number">6.1.5.</span> <span class="nav-text">单例模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构型模式"><span class="nav-number">6.2.</span> <span class="nav-text">结构型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#适配器模式"><span class="nav-number">6.2.1.</span> <span class="nav-text">适配器模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#桥接模式"><span class="nav-number">6.2.2.</span> <span class="nav-text">桥接模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#装饰器模式"><span class="nav-number">6.2.3.</span> <span class="nav-text">装饰器模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外观模式"><span class="nav-number">6.2.4.</span> <span class="nav-text">外观模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#享元模式"><span class="nav-number">6.2.5.</span> <span class="nav-text">享元模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代理模式"><span class="nav-number">6.2.6.</span> <span class="nav-text">代理模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行为型模式"><span class="nav-number">6.3.</span> <span class="nav-text">行为型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令模式"><span class="nav-number">6.3.1.</span> <span class="nav-text">命令模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中介者模式"><span class="nav-number">6.3.2.</span> <span class="nav-text">中介者模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#观察者模式"><span class="nav-number">6.3.3.</span> <span class="nav-text">观察者模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#状态模式"><span class="nav-number">6.3.4.</span> <span class="nav-text">状态模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#策略模式"><span class="nav-number">6.3.5.</span> <span class="nav-text">策略模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【参考来源】"><span class="nav-number">6.4.</span> <span class="nav-text">【参考来源】</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">莫爵贵(JayMo)</span>
+</div>
+
+
+<div class="powered-by"> <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv"> 本站访客数:<span id="busuanzi_value_site_uv"></span> </span> </div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+  
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-jaymo666-github-io.disqus.com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://jaymo666.github.io/2018/04/16/设计模式详解/';
+          this.page.identifier = '2018/04/16/设计模式详解/';
+          this.page.title = '设计模式详解';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jaymo666-github-io.disqus.com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d37aea056c664d75ac440513eaadf347",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("ImvYovo3ihlydPX6HiNAgCIE-gzGzoHsz", "tAeYBuQBAgUF3CcRpq5KNk4z");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
